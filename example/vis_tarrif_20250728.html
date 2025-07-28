@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impacts of US-EU 15% Tariff Agreement</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1e293b;
+            color: #f8fafc;
+        }
+        .container-bg {
+            background-color: #283447;
+        }
+        .accent-gold {
+            color: #c0a062;
+        }
+        .border-gold {
+            border-color: #c0a062;
+        }
+        .text-muted {
+            color: #94a3b8;
+        }
+        .text-positive {
+            color: #3b82f6;
+        }
+        .text-negative {
+            color: #ef4444;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th {
+            background-color: #283447;
+            color: #c0a062;
+            font-weight: bold;
+            padding: 12px 15px;
+            text-align: left;
+        }
+        td {
+            padding: 10px 15px;
+            border-bottom: 1px solid #334155;
+        }
+        tr:nth-child(odd) {
+            background-color: #1e293b;
+        }
+        tr:nth-child(even) {
+            background-color: #283447;
+        }
+        .chart-container {
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            height: 250px; /* Fixed height to prevent unstoppable y-axis extension */
+        }
+        .chart-canvas {
+            background-color: #283447;
+            border-radius: 8px;
+            padding: 15px;
+        }
+        .chart-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #f8fafc;
+        }
+        .section-title {
+            border-bottom: 2px solid #c0a062;
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+        }
+        .subsection-title {
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+        /* Chinese font styling */
+        .zh-text {
+            font-family: 'Noto Sans SC', sans-serif; /* Example for a common Chinese font */
+        }
+    </style>
+</head>
+<body class="p-8">
+    <header class="mb-8">
+        <h1 class="text-3xl font-bold text-center accent-gold mb-4">Impacts of US-EU 15% Tariff Agreement</h1>
+        <h1 class="text-3xl font-bold text-center accent-gold mb-4 zh-text">美欧15%关税协议的影响</h1>
+        <p class="text-center text-muted">Date: July 28, 2025</p>
+        <p class="text-center text-muted zh-text">日期：2025年7月28日</p>
+    </header>
+
+    <main class="max-w-4xl mx-auto">
+        <section class="mb-8">
+            <h2 class="text-xl font-bold section-title">Executive Summary</h2>
+            <h2 class="text-xl font-bold section-title zh-text">执行摘要</h2>
+            <p class="mb-4">The recent agreement between the United States and the European Union to implement a 15% tariff on most goods exchanged between the two blocs, effective July 2025, represents a significant shift in transatlantic trade relations. While this agreement averted a more severe trade war with potentially higher tariffs, it is poised to have multifaceted and long-term impacts across various countries and sectors. This report details these impacts, focusing on economic growth, employment, supply chain restructuring, investment flows, and specific effects on key EU member states and industries.</p>
+            <p class="mb-4 zh-text">美利坚合众国与欧盟近期达成协议，自2025年7月起对双方大部分商品征收15%的关税，这标志着跨大西洋贸易关系的一次重大转变。尽管该协议避免了可能导致更高关税的更严重贸易战，但它将对各国和各行业产生多方面和长期的影响。本报告详细阐述了这些影响，重点关注经济增长、就业、供应链重组、投资流动以及对欧盟主要成员国和行业产生的具体影响。</p>
+        </section>
+
+        <section class="mb-8">
+            <h2 class="text-xl font-bold section-title">1. General Long-Term Impacts</h2>
+            <h2 class="text-xl font-bold section-title zh-text">1. 总体长期影响</h2>
+
+            <h3 class="text-lg font-semibold subsection-title">1.1. Increased Costs and Prices</h3>
+            <h3 class="text-lg font-semibold subsection-title zh-text">1.1. 成本和价格上涨</h3>
+            <p class="mb-4">The 15% tariff is expected to lead to increased costs for businesses and higher prices for consumers on both sides of the Atlantic. In the US, consumers are likely to see price hikes on imported luxury goods, automobiles, foreign-made leather shoes, handbags, apparel, and electronics. European consumers could face higher prices for US goods if retaliatory tariffs are implemented, and increased competition from redirected products could also influence prices within the EU. Manufacturers in both regions will experience higher input costs for imported raw materials and components, leading to margin pressure.</p>
+            <p class="mb-4 zh-text">预计15%的关税将导致大西洋两岸企业成本增加和消费者价格上涨。在美国，消费者可能会看到进口奢侈品、汽车、外国制造的皮鞋、手袋、服装和电子产品价格上涨。如果欧盟实施报复性关税，欧洲消费者可能面临美国商品价格上涨，而转运商品带来的竞争加剧也可能影响欧盟内部的价格。两地区的制造商都将面临进口原材料和零部件的更高投入成本，从而导致利润压力。</p>
+
+            <h3 class="text-lg font-semibold subsection-title">1.2. Economic Growth and Employment</h3>
+            <h3 class="text-lg font-semibold subsection-title zh-text">1.2. 经济增长和就业</h3>
+            <div class="overflow-x-auto mb-4">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Region<br><span class="zh-text">地区</span></th>
+                            <th>Projected GDP Impact (General)<br><span class="zh-text">预计GDP影响（总体）</span></th>
+                            <th>Employment Impact (General)<br><span class="zh-text">就业影响（总体）</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>European Union</strong><br><span class="zh-text">欧盟</span></td>
+                            <td>Moderately lowered (<span class="text-negative">0.2-0.3% reduction</span>); <span class="text-negative">0.3% contraction</span> in "no-deal" scenario; 25% US tariff could reduce GDP by <span class="text-negative">0.33% (short-term)</span> to <span class="text-negative">0.87% (long-term)</span>; full trade war could see <span class="text-negative">2.5% (short-term)</span> to <span class="text-negative">1.7% (long-term)</span> decline.<br><span class="zh-text">适度下降（0.2-0.3%减少）；“无协议”情景下收缩0.3%；25%的美国关税可能导致GDP短期减少0.33%至长期减少0.87%；全面贸易战可能导致短期2.5%至长期1.7%的下降。</span></td>
+                            <td>20% blanket tariff could risk <span class="text-negative">700,000 jobs</span>; <span class="text-negative">€160 billion cost</span> (ECB estimate); vulnerable sectors: automotive, manufacturing, steel, chemicals, agriculture; potential production relocation.<br><span class="zh-text">20%的全面关税可能危及70万个就业岗位；1600亿欧元成本（欧洲央行估计）；脆弱行业：汽车、制造业、钢铁、化工、农业；潜在的生产转移。</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>United States</strong><br><span class="zh-text">美国</span></td>
+                            <td><span class="text-negative">0.6-1.0% lower GDP</span> from unilateral tariff hikes; <span class="text-negative">0.7% decline</span> in "no-deal" scenario; <span class="text-negative">0.2% additional reduction</span> from retaliatory tariffs (combined <span class="text-negative">1.0% reduction</span>).<br><span class="zh-text">单边关税上调导致GDP下降0.6-1.0%；“无协议”情景下下降0.7%；报复性关税额外减少0.2%（合计减少1.0%）。</span></td>
+                            <td>Risks to firms/workers relying on international supply chains; SMEs particularly vulnerable; historical job losses from tariffs (e.g., <span class="text-negative">200,000 jobs</span> from 2002 steel tariffs).<br><span class="zh-text">依赖国际供应链的企业/工人面临风险；中小企业尤其脆弱；关税导致的历史性失业（例如，2002年钢铁关税导致20万个就业岗位流失）。</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="chart-container container-bg">
+                <div class="chart-title">Projected GDP Impact (General)<br><span class="zh-text">预计GDP影响（总体）</span></div>
+                <canvas id="gdpImpactChart" class="chart-canvas"></canvas>
+            </div>
+            <div class="chart-container container-bg">
+                <div class="chart-title">Employment Impact (General)<br><span class="zh-text">就业影响（总体）</span></div>
+                <canvas id="employmentImpactChart" class="chart-canvas"></canvas>
+            </div>
+
+            <h3 class="text-lg font-semibold subsection-title">1.3. Supply Chain Restructuring</h3>
+            <h3 class="text-lg font-semibold subsection-title zh-text">1.3. 供应链重组</h3>
+            <p class="mb-4">The 15% tariff, while averting major disruptions from higher rates, will still drive significant supply chain reassessment. Businesses are exploring duty mitigation options and alternative suppliers. This is accelerating a global trend towards more diversified and regionally structured manufacturing networks, reducing reliance on single regions. The US policy aims to bolster domestic industries, encouraging reshoring and localized production. This will lead to shifts in specific sectors, as detailed below.</p>
+            <p class="mb-4 zh-text">15%的关税虽然避免了更高税率带来的重大中断，但仍将推动供应链的重大重新评估。企业正在探索关税减免方案和替代供应商。这正在加速全球向更加多元化和区域化制造网络发展的趋势，减少对单一区域的依赖。美国政策旨在扶持国内产业，鼓励回流和本地化生产。这将导致特定行业的转变，详情如下。</p>
+
+            <h3 class="text-lg font-semibold subsection-title">1.4. Investment Flows</h3>
+            <h3 class="text-lg font-semibold subsection-title zh-text">1.4. 投资流动</h3>
+            <p class="mb-4">The tariff agreement significantly influences investment patterns. The EU has committed to substantial purchases of US energy ($750 billion over three years) and additional investments in US infrastructure and technology ($600 billion through 2030). While tariffs generally deter Foreign Direct Investment (FDI) by increasing costs, they can also incentivize foreign companies to invest directly in the tariff-imposing country to bypass trade barriers. The EU also possesses mechanisms, like the Anti-Coercion Instrument, to respond to perceived economic coercion.</p>
+            <p class="mb-4 zh-text">关税协议显著影响投资模式。欧盟已承诺在未来三年内大量购买美国能源（7500亿美元），并额外投资美国基础设施和技术（到2030年达到6000亿美元）。虽然关税通常会通过增加成本来阻碍外国直接投资（FDI），但它们也可以激励外国公司直接在征收关税的国家投资，以规避贸易壁垒。欧盟还拥有反胁迫工具等机制，以应对被视为经济胁迫的行为。</p>
+        </section>
+
+        <section class="mb-8">
+            <h2 class="text-xl font-bold section-title">2. Impacts on Countries</h2>
+            <h2 class="text-xl font-bold section-title zh-text">2. 对国家的影响</h2>
+
+            <h3 class="text-lg font-semibold subsection-title">2.1. United States</h3>
+            <h3 class="text-lg font-semibold subsection-title zh-text">2.1. 美国</h3>
+            <p class="mb-4">Beyond the general economic impacts of higher consumer prices, reduced GDP, and potential job losses, the US energy sector stands to benefit significantly. The EU's commitment to purchase $750 billion worth of US energy (LNG, oil, nuclear fuels) over three years represents a substantial boost for US energy exports, driven by Europe's strategic shift away from Russian energy sources.</p>
+            <p class="mb-4 zh-text">除了消费者价格上涨、GDP下降和潜在失业等总体经济影响外，美国能源行业将显著受益。欧盟承诺在未来三年内购买价值7500亿美元的美国能源（液化天然气、石油、核燃料），这得益于欧洲摆脱俄罗斯能源的战略转变，将极大地促进美国能源出口。</p>
+
+            <h3 class="text-lg font-semibold subsection-title">2.2. European Union (General)</h3>
+            <h3 class="text-lg font-semibold subsection-title zh-text">2.2. 欧盟（总体）</h3>
+            <p class="mb-4">The EU faces a moderate GDP reduction and a decline in exports to the US. While direct impacts on intra-EU trade are not explicitly detailed, indirect effects from overall economic slowdown, supply chain restructuring, and increased competition from redirected goods are likely. The agreement, despite the tariffs, is seen as bringing some stability compared to a full trade war.</p>
+            <p class="mb-4 zh-text">欧盟面临GDP适度下降和对美出口减少。虽然对欧盟内部贸易的直接影响没有明确详细说明，但总体经济放缓、供应链重组以及转运商品带来的竞争加剧可能产生间接影响。尽管存在关税，但该协议被视为与全面贸易战相比带来了一定的稳定性。</p>
+
+            <h3 class="text-lg font-semibold subsection-title">2.3. Specific EU Member States</h3>
+            <h3 class="text-lg font-semibold subsection-title zh-text">2.3. 欧盟特定成员国</h3>
+            <div class="overflow-x-auto mb-4">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Country<br><span class="zh-text">国家</span></th>
+                            <th>Key Sector(s) Affected<br><span class="zh-text">受影响主要行业</span></th>
+                            <th>Impact of 15% Tariff Agreement<br><span class="zh-text">15%关税协议的影响</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Germany</strong><br><span class="zh-text">德国</span></td>
+                            <td>Automotive, Export-oriented economy<br><span class="zh-text">汽车，出口导向型经济</span></td>
+                            <td>The 15% tariff is a significant reduction from previous (<span class="text-positive">27.5%</span>) and threatened (<span class="text-positive">30%</span>) higher tariffs. This is seen as positive, averting substantial losses and indicating a more stable, albeit still tariff-affected, environment for German automakers in the US market.<br><span class="zh-text">15%的关税较之前（27.5%）和威胁（30%）的更高关税有显著降低。这被视为积极因素，避免了重大损失，并为德国汽车制造商在美国市场创造了更稳定（尽管仍受关税影响）的环境。</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ireland</strong><br><span class="zh-text">爱尔兰</span></td>
+                            <td>Pharmaceuticals<br><span class="zh-text">制药</span></td>
+                            <td>The 15% tariff applies broadly, but there's ambiguity and potential for higher future tariffs specifically on pharmaceuticals from the US side. Generic drugs are exempt. The sector is vital to Ireland's economy, and even the 15% tariff is considered a substantial burden, though the agreement provides some certainty.<br><span class="zh-text">15%的关税普遍适用，但对来自美国的药品关税仍存在模糊性，未来可能面临更高关税。仿制药免税。该行业对爱尔兰经济至关重要，即使15%的关税也被视为沉重负担，尽管协议提供了一定的确定性。</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Italy</strong><br><span class="zh-text">意大利</span></td>
+                            <td>Transport equipment, Fashion, Car manufacturing, Pharmaceuticals, Food, Wine<br><span class="zh-text">运输设备、时尚、汽车制造、制药、食品、葡萄酒</span></td>
+                            <td>Highly exposed across several sectors. The 15% tariff, while a burden, provides clarity and avoids a more severe trade conflict.<br><span class="zh-text">多个行业高度暴露。15%的关税虽然是负担，但提供了明确性，避免了更严重的贸易冲突。</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>France</strong><br><span class="zh-text">法国</span></td>
+                            <td>Aeronautics, Food, Wine, Luxury goods<br><span class="zh-text">航空、食品、葡萄酒、奢侈品</span></td>
+                            <td>Less exposed overall than Germany or Italy, but these sectors could still face significant challenges. The agreement avoids the severe impact of previously threatened higher tariff rates.<br><span class="zh-text">总体暴露程度低于德国或意大利，但这些行业仍可能面临重大挑战。该协议避免了之前威胁的更高关税税率带来的严重影响。</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Netherlands & Belgium</strong><br><span class="zh-text">荷兰和比利时</span></td>
+                            <td>Goods exports to US (general)<br><span class="zh-text">对美商品出口（总体）</span></td>
+                            <td>Key markets for US imports from the EU, showing greater exposure in goods exports to the US compared to the overall EU average. The agreement provides much-needed clarity for businesses.<br><span class="zh-text">欧盟对美出口商品的主要市场，与欧盟总体平均水平相比，对美商品出口的风险敞口更大。该协议为企业提供了急需的明确性。</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="mb-8">
+            <h2 class="text-xl font-bold section-title">3. Impacts on Key Sectors</h2>
+            <h2 class="text-xl font-bold section-title zh-text">3. 对主要行业的影响</h2>
+
+            <h3 class="text-lg font-semibold subsection-title">3.1. Automotive</h3>
+            <h3 class="text-lg font-semibold subsection-title zh-text">3.1. 汽车</h3>
+            <p class="mb-4">The 15% tariff on automotive imports from the EU to the US is a significant reduction from previous (25%) and threatened (30%) higher tariffs, aiming to stabilize trade. This will likely lead to higher prices for US consumers and necessitate strategic adjustments for European automakers. The agreement also includes broader EU commitments to US energy and investment.</p>
+            <p class="mb-4 zh-text">对欧盟输美汽车征收15%的关税，较之前（25%）和威胁（30%）的更高关税有显著降低，旨在稳定贸易。这可能导致美国消费者价格上涨，并要求欧洲汽车制造商进行战略调整。该协议还包括欧盟对美国能源和投资的更广泛承诺。</p>
+
+            <h3 class="text-lg font-semibold subsection-title">3.2. Pharmaceuticals</h3>
+            <h3 class="text-lg font-semibold subsection-title zh-text">3.2. 制药</h3>
+            <p class="mb-4">The pharmaceutical sector faces a 15% tariff, but there's ongoing ambiguity and potential for higher future tariffs, especially from the US side. Generic drugs are explicitly exempt. The sector is a significant export for the EU to the US, and the 15% tariff is a compromise that avoids previously threatened higher rates, but still represents a new cost.</p>
+            <p class="mb-4 zh-text">制药行业面临15%的关税，但仍存在持续的不确定性，特别是来自美国方面未来可能征收更高关税。仿制药明确免税。该行业是欧盟对美国的重要出口领域，15%的关税是避免此前威胁的更高税率的折衷方案，但仍代表着一项新成本。</p>
+
+            <h3 class="text-lg font-semibold subsection-title">3.3. Steel and Aluminum</h3>
+            <h3 class="text-lg font-semibold subsection-title zh-text">3.3. 钢铁和铝</h3>
+            <p class="mb-4">The steel and aluminum sectors continue to face a high 50% tariff from the US, which was imposed in June 2025. This is a significant exception to the broader 15% tariff agreement. While the current high tariff remains, there is an indication that it will eventually be replaced by a quota system.</p>
+            <p class="mb-4 zh-text">钢铁和铝行业继续面临美国征收的50%高关税，该关税于2025年6月实施。这是对更广泛的15%关税协议的一个显著例外。尽管目前的高关税仍然存在，但有迹象表明它最终将被配额制度取代。</p>
+
+            <h3 class="text-lg font-semibold subsection-title">3.4. Consumer Goods and Luxury Items</h3>
+            <h3 class="text-lg font-semibold subsection-title zh-text">3.4. 消费品和奢侈品</h3>
+            <p class="mb-4">Luxury goods are subject to the 15% tariff, which is a reduction from previously threatened higher rates. This means increased costs for these goods in the US market, but the agreement provides more stability compared to a full trade war.</p>
+            <p class="mb-4 zh-text">奢侈品需缴纳15%的关税，这比之前威胁的更高税率有所降低。这意味着这些商品在美国市场的成本将增加，但与全面贸易战相比，该协议提供了更大的稳定性。</p>
+
+            <h3 class="text-lg font-semibold subsection-title">3.5. Energy</h3>
+            <h3 class="text-lg font-semibold subsection-title zh-text">3.5. 能源</h3>
+            <p class="mb-4">The energy sector is a unique case where the 15% tariff agreement has led to a significant increase in EU purchases of US energy (LNG, oil, nuclear fuels), driven by the EU's strategic shift away from Russian sources. This represents a substantial long-term positive impact for the US energy sector, strengthening transatlantic energy ties and enhancing Europe's energy security.</p>
+            <p class="mb-4 zh-text">能源行业是一个独特的案例，15%的关税协议导致欧盟大幅增加对美国能源（液化天然气、石油、核燃料）的采购，这得益于欧盟摆脱俄罗斯能源的战略转变。这代表着对美国能源行业的巨大长期积极影响，加强了跨大西洋能源联系并增强了欧洲的能源安全。</p>
+
+            <h3 class="text-lg font-semibold subsection-title">3.6. Technology (Semiconductors, Digital Infrastructure)</h3>
+            <h3 class="text-lg font-semibold subsection-title zh-text">3.6. 科技（半导体、数字基础设施）</h3>
+            <p class="mb-4">Semiconductors are subject to the 15% tariff, but semiconductor equipment is exempt. There's still some ambiguity regarding ongoing US investigations into chips. The EU's focus on digital infrastructure and the Digital Markets Act (DMA) are encouraging US investment in European data centers, creating new opportunities in cloud and AI infrastructure.</p>
+            <p class="mb-4 zh-text">半导体需缴纳15%的关税，但半导体设备免税。美国对芯片的持续调查仍存在一些不确定性。欧盟对数字基础设施和《数字市场法案》（DMA）的关注正在鼓励美国对欧洲数据中心的投资，为云计算和人工智能基础设施创造新的机会。</p>
+
+            <h3 class="text-lg font-semibold subsection-title">3.7. Defense</h3>
+            <h3 class="text-lg font-semibold subsection-title zh-text">3.7. 国防</h3>
+            <p class="mb-4">The EU is significantly increasing its defense spending, driven by geopolitical factors. A substantial portion of this spending, and a specific commitment within the US-EU trade deal, is directed towards purchasing US military equipment. This indicates a strong and growing market for US defense manufacturers and a continued reliance of the EU on US military technology, despite efforts to bolster its own defense industry.</p>
+            <p class="mb-4 zh-text">受地缘政治因素驱动，欧盟正在大幅增加国防开支。这笔开支的很大一部分以及美欧贸易协议中的一项具体承诺，都将用于采购美国军事装备。这表明美国国防制造商的市场强劲且不断增长，尽管欧盟努力扶持自己的国防工业，但仍将继续依赖美国军事技术。</p>
+        </section>
+    </main>
+
+    <script>
+        // Data for GDP Impact Chart
+        const gdpImpactData = {
+            labels: ['European Union', 'United States'],
+            datasets: [{
+                label: 'Projected GDP Impact (General)',
+                data: [-0.25, -0.8], // Average of ranges, negative for reduction
+                backgroundColor: [
+                    'rgba(239, 68, 68, 0.8)', // Red for negative impact
+                    'rgba(239, 68, 68, 0.8)'
+                ],
+                borderColor: [
+                    'rgba(239, 68, 68, 1)',
+                    'rgba(239, 68, 68, 1)'
+                ],
+                borderWidth: 1
+            }]
+        };
+
+        // Configuration for GDP Impact Chart
+        const gdpImpactConfig = {
+            type: 'bar',
+            data: gdpImpactData,
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    title: {
+                        display: false,
+                    }
+                },
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        ticks: {
+                            color: '#f8fafc',
+                            callback: function(value) {
+                                return value.toFixed(2) + '%';
+                            }
+                        },
+                        grid: {
+                            color: '#334155'
+                        }
+                    },
+                    y: {
+                        ticks: {
+                            color: '#f8fafc'
+                        },
+                        grid: {
+                            color: '#334155'
+                        }
+                    }
+                }
+            }
+        };
+
+        // Render GDP Impact Chart
+        const gdpImpactChart = new Chart(
+            document.getElementById('gdpImpactChart'),
+            gdpImpactConfig
+        );
+
+        // Data for Employment Impact Chart
+        const employmentImpactData = {
+            labels: ['European Union (Jobs at Risk)', 'United States (Jobs Lost)'],
+            datasets: [{
+                label: 'Employment Impact (General)',
+                data: [-700000, -594000], // Negative for job losses
+                backgroundColor: [
+                    'rgba(239, 68, 68, 0.8)', // Red for negative impact
+                    'rgba(239, 68, 68, 0.8)'
+                ],
+                borderColor: [
+                    'rgba(239, 68, 68, 1)',
+                    'rgba(239, 68, 68, 1)'
+                ],
+                borderWidth: 1
+            }]
+        };
+
+        // Configuration for Employment Impact Chart
+        const employmentImpactConfig = {
+            type: 'bar',
+            data: employmentImpactData,
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    title: {
+                        display: false,
+                    }
+                },
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        ticks: {
+                            color: '#f8fafc',
+                            callback: function(value) {
+                                return value.toLocaleString(); // Format as number
+                            }
+                        },
+                        grid: {
+                            color: '#334155'
+                        }
+                    },
+                    y: {
+                        ticks: {
+                            color: '#f8fafc'
+                        },
+                        grid: {
+                            color: '#334155'
+                        }
+                    }
+                }
+            }
+        };
+
+        // Render Employment Impact Chart
+        const employmentImpactChart = new Chart(
+            document.getElementById('employmentImpactChart'),
+            employmentImpactConfig
+        );
+    </script>
+</body>
+</html>
