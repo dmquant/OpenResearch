@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>US-EU 15% Tariff Agreement: Economic Impact Analysis | 美欧15%关税协定：经济影响分析</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1e293b;
+            color: #f8fafc;
+        }
+        .container-bg {
+            background-color: #283447;
+        }
+        .accent-gold {
+            color: #c0a062;
+        }
+        .text-muted {
+            color: #94a3b8;
+        }
+        .positive {
+            color: #3b82f6;
+        }
+        .negative {
+            color: #ef4444;
+        }
+        .section-border {
+            border-bottom: 2px solid #c0a062;
+        }
+        .chart-container {
+            max-height: 400px;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <header class="container-bg py-8 px-6">
+        <div class="max-w-6xl mx-auto">
+            <h1 class="text-3xl font-bold accent-gold mb-4">US-EU 15% Tariff Agreement: Comprehensive Economic Impact Analysis</h1>
+            <h1 class="text-2xl font-bold accent-gold mb-4">美欧15%关税协定：全面经济影响分析</h1>
+            <p class="text-muted text-lg">Research Date: July 28, 2025 | 研究日期：2025年7月28日</p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 py-8">
+        <section class="mb-12">
+            <h2 class="text-xl font-bold section-border pb-2 mb-6">Executive Summary | 执行摘要</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="container-bg rounded-lg p-6">
+                    <h3 class="text-lg font-semibold accent-gold mb-4">Key Impact Metrics | 关键影响指标</h3>
+                    <table class="w-full">
+                        <thead>
+                            <tr class="border-b border-gray-600">
+                                <th class="text-left py-2 accent-gold">Metric | 指标</th>
+                                <th class="text-right py-2 accent-gold">Impact | 影响</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-gray-700">
+                                <td class="py-2">US GDP | 美国GDP</td>
+                                <td class="py-2 text-right negative">-0.9%</td>
+                            </tr>
+                            <tr class="border-b border-gray-700">
+                                <td class="py-2">EU GDP | 欧盟GDP</td>
+                                <td class="py-2 text-right negative">-0.3%</td>
+                            </tr>
+                            <tr class="border-b border-gray-700">
+                                <td class="py-2">US Tariff Rate | 美国关税率</td>
+                                <td class="py-2 text-right accent-gold">22.5%</td>
+                            </tr>
+                            <tr class="border-b border-gray-700">
+                                <td class="py-2">Global Trade Decline | 全球贸易下降</td>
+                                <td class="py-2 text-right negative">-5.5% to -8.5%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="container-bg rounded-lg p-6">
+                    <h3 class="text-lg font-semibold accent-gold mb-4">Agreement Highlights | 协定要点</h3>
+                    <ul class="space-y-2 text-muted">
+                        <li>• 15% tariff on most EU goods | 大部分欧盟商品征收15%关税</li>
+                        <li>• Zero tariffs on aircraft, chemicals, generics | 飞机、化学品、仿制药零关税</li>
+                        <li>• EU commits $750B energy purchases | 欧盟承诺7500亿美元能源采购</li>
+                        <li>• Steel/aluminum tariffs remain at 50% | 钢铁/铝关税维持50%</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-12">
+            <h2 class="text-xl font-bold section-border pb-2 mb-6">Country Exposure Analysis | 国家风险分析</h2>
+            <div class="container-bg rounded-lg p-6 mb-6">
+                <h3 class="text-lg font-semibold accent-gold mb-4">EU Member States GDP Exposure | 欧盟成员国GDP风险</h3>
+                <div class="chart-container">
+                    <canvas id="euExposureChart"></canvas>
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="container-bg rounded-lg p-6">
+                    <h3 class="text-lg font-semibold accent-gold mb-4">Most Vulnerable EU Countries | 最脆弱的欧盟国家</h3>
+                    <table class="w-full">
+                        <thead>
+                            <tr class="border-b border-gray-600">
+                                <th class="text-left py-2 accent-gold">Country | 国家</th>
+                                <th class="text-right py-2 accent-gold">GDP Exposure | GDP风险</th>
+                                <th class="text-right py-2 accent-gold">Key Sectors | 关键部门</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-gray-700">
+                                <td class="py-2">Ireland | 爱尔兰</td>
+                                <td class="py-2 text-right negative">20.0%</td>
+                                <td class="py-2 text-right text-muted">Pharma | 制药</td>
+                            </tr>
+                            <tr class="border-b border-gray-700">
+                                <td class="py-2">Italy | 意大利</td>
+                                <td class="py-2 text-right negative">4.0%</td>
+                                <td class="py-2 text-right text-muted">Auto | 汽车</td>
+                            </tr>
+                            <tr class="border-b border-gray-700">
+                                <td class="py-2">Germany | 德国</td>
+                                <td class="py-2 text-right negative">5.0%</td>
+                                <td class="py-2 text-right text-muted">Manufacturing | 制造业</td>
+                            </tr>
+                            <tr class="border-b border-gray-700">
+                                <td class="py-2">France | 法国</td>
+                                <td class="py-2 text-right negative">3.0%</td>
+                                <td class="py-2 text-right text-muted">Aerospace | 航空航天</td>
+                            </tr>
+                            <tr class="border-b border-gray-700">
+                                <td class="py-2">Netherlands | 荷兰</td>
+                                <td class="py-2 text-right negative">3.2%</td>
+                                <td class="py-2 text-right text-muted">Chemicals | 化工</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="container-bg rounded-lg p-6">
+                    <h3 class="text-lg font-semibold accent-gold mb-4">US States at Risk | 面临风险的美国各州</h3>
+                    <table class="w-full">
+                        <thead>
+                            <tr class="border-b border-gray-600">
+                                <th class="text-left py-2 accent-gold">State | 州</th>
+                                <th class="text-right py-2 accent-gold">Jobs at Risk | 风险就业</th>
+                                <th class="text-right py-2 accent-gold">GDP Impact | GDP影响</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-gray-700">
+                                <td class="py-2">California | 加利福尼亚</td>
+                                <td class="py-2 text-right negative">285,000</td>
+                                <td class="py-2 text-right negative">-1.2%</td>
+                            </tr>
+                            <tr class="border-b border-gray-700">
+                                <td class="py-2">Texas | 德克萨斯</td>
+                                <td class="py-2 text-right negative">220,000</td>
+                                <td class="py-2 text-right negative">-0.8%</td>
+                            </tr>
+                            <tr class="border-b border-gray-700">
+                                <td class="py-2">Michigan | 密歇根</td>
+                                <td class="py-2 text-right negative">180,000</td>
+                                <td class="py-2 text-right negative">-2.1%</td>
+                            </tr>
+                            <tr class="border-b border-gray-700">
+                                <td class="py-2">New York | 纽约</td>
+                                <td class="py-2 text-right negative">165,000</td>
+                                <td class="py-2 text-right negative">-0.9%</td>
+                            </tr>
+                            <tr class="border-b border-gray-700">
+                                <td class="py-2">Florida | 佛罗里达</td>
+                                <td class="py-2 text-right negative">120,000</td>
+                                <td class="py-2 text-right negative">-0.6%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-12">
+            <h2 class="text-xl font-bold section-border pb-2 mb-6">Sectoral Impact Analysis | 部门影响分析</h2>
+            <div class="grid md:grid-cols-2 gap-6 mb-6">
+                <div class="container-bg rounded-lg p-6">
+                    <h3 class="text-lg font-semibold accent-gold mb-4">Tariff Rates by Sector | 各部门关税率</h3>
+                    <div class="chart-container">
+                        <canvas id="sectorTariffChart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="container-bg rounded-lg p-6">
+                    <h3 class="text-lg font-semibold accent-gold mb-4">Trade Volume Changes | 贸易量变化</h3>
+                    <div class="chart-container">
+                        <canvas id="tradeVolumeChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="container-bg rounded-lg p-6">
+                <h3 class="text-lg font-semibold accent-gold mb-4">Key Sector Analysis | 关键部门分析</h3>
+                <table class="w-full">
+                    <thead>
+                        <tr class="border-b border-gray-600">
+                            <th class="text-left py-2 accent-gold">Sector | 部门</th>
+                            <th class="text-right py-2 accent-gold">Tariff Rate | 关税率</th>
+                            <th class="text-right py-2 accent-gold">Trade Value | 贸易价值</th>
+                            <th class="text-right py-2 accent-gold">Impact | 影响</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b border-gray-700">
+                            <td class="py-2">Automotive | 汽车</td>
+                            <td class="py-2 text-right positive">15% (↓from 27.5%)</td>
+                            <td class="py-2 text-right">€56B</td>
+                            <td class="py-2 text-right positive">Improved | 改善</td>
+                        </tr>
+                        <tr class="border-b border-gray-700">
+                            <td class="py-2">Steel/Aluminum | 钢铁/铝</td>
+                            <td class="py-2 text-right negative">50% (unchanged)</td>
+                            <td class="py-2 text-right">€20B</td>
+                            <td class="py-2 text-right negative">Severe | 严重</td>
+                        </tr>
+                        <tr class="border-b border-gray-700">
+                            <td class="py-2">Pharmaceuticals | 制药</td>
+                            <td class="py-2 text-right positive">0-25% (mixed)</td>
+                            <td class="py-2 text-right">€127B</td>
+                            <td class="py-2 text-right accent-gold">Mixed | 混合</td>
+                        </tr>
+                        <tr class="border-b border-gray-700">
+                            <td class="py-2">Machinery | 机械</td>
+                            <td class="py-2 text-right negative">15%</td>
+                            <td class="py-2 text-right">€89.8B</td>
+                            <td class="py-2 text-right negative">Negative | 消极</td>
+                        </tr>
+                        <tr class="border-b border-gray-700">
+                            <td class="py-2">Agriculture | 农业</td>
+                            <td class="py-2 text-right negative">15% + retaliation</td>
+                            <td class="py-2 text-right">€28.6B</td>
+                            <td class="py-2 text-right negative">High Impact | 高影响</td>
+                        </tr>
+                        <tr class="border-b border-gray-700">
+                            <td class="py-2">Energy | 能源</td>
+                            <td class="py-2 text-right positive">0% (exempted)</td>
+                            <td class="py-2 text-right">€750B commitment</td>
+                            <td class="py-2 text-right positive">Positive | 积极</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="mb-12">
+            <h2 class="text-xl font-bold section-border pb-2 mb-6">Economic Projections (2025-2028) | 经济预测 (2025-2028)</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="container-bg rounded-lg p-6">
+                    <h3 class="text-lg font-semibold accent-gold mb-4">GDP Impact Projections | GDP影响预测</h3>
+                    <div class="chart-container">
+                        <canvas id="gdpProjectionChart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="container-bg rounded-lg p-6">
+                    <h3 class="text-lg font-semibold accent-gold mb-4">Consumer Price Impact | 消费者价格影响</h3>
+                    <table class="w-full">
+                        <thead>
+                            <tr class="border-b border-gray-600">
+                                <th class="text-left py-2 accent-gold">Region | 地区</th>
+                                <th class="text-right py-2 accent-gold">Inflation | 通胀</th>
+                                <th class="text-right py-2 accent-gold">Household Cost | 家庭成本</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-gray-700">
+                                <td class="py-2">United States | 美国</td>
+                                <td class="py-2 text-right negative">+2.3%</td>
+                                <td class="py-2 text-right negative">+$3,800</td>
+                            </tr>
+                            <tr class="border-b border-gray-700">
+                                <td class="py-2">European Union | 欧盟</td>
+                                <td class="py-2 text-right negative">+1.1%</td>
+                                <td class="py-2 text-right negative">+€1,200</td>
+                            </tr>
+                            <tr class="border-b border-gray-700">
+                                <td class="py-2">Germany | 德国</td>
+                                <td class="py-2 text-right negative">+1.4%</td>
+                                <td class="py-2 text-right negative">+€1,850</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-12">
+            <h2 class="text-xl font-bold section-border pb-2 mb-6">Long-term Structural Changes | 长期结构性变化</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="container-bg rounded-lg p-6">
+                    <h3 class="text-lg font-semibold accent-gold mb-4">Supply Chain Shifts | 供应链转移</h3>
+                    <ul class="space-y-2 text-muted">
+                        <li>• 52% of Chinese goods via Mexico | 52%中国商品经墨西哥</li>
+                        <li>• EU-US direct trade down 8-12% | 欧美直接贸易下降8-12%</li>
+                        <li>• Third-country FDI up 73% | 第三国FDI增长73%</li>
+                        <li>• Regional supply chain focus | 区域供应链重点</li>
+                    </ul>
+                </div>
+                
+                <div class="container-bg rounded-lg p-6">
+                    <h3 class="text-lg font-semibold accent-gold mb-4">Investment Patterns | 投资模式</h3>
+                    <ul class="space-y-2 text-muted">
+                        <li>• US FDI to EU: <span class="negative">-13.5%</span></li>
+                        <li>• EU FDI to US: <span class="negative">-7.1%</span></li>
+                        <li>• Alternative market focus | 替代市场重点</li>
+                        <li>• Technology sovereignty push | 技术主权推进</li>
+                    </ul>
+                </div>
+                
+                <div class="container-bg rounded-lg p-6">
+                    <h3 class="text-lg font-semibold accent-gold mb-4">Geopolitical Impact | 地缘政治影响</h3>
+                    <ul class="space-y-2 text-muted">
+                        <li>• Weakened transatlantic ties | 跨大西洋关系削弱</li>
+                        <li>• EU-Asia partnerships grow | 欧亚伙伴关系增长</li>
+                        <li>• End of globalization era | 全球化时代结束</li>
+                        <li>• Regional trade bloc focus | 区域贸易集团重点</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-12">
+            <h2 class="text-xl font-bold section-border pb-2 mb-6">Risk Scenarios | 风险情景</h2>
+            <div class="container-bg rounded-lg p-6">
+                <h3 class="text-lg font-semibold accent-gold mb-4">Scenario Analysis | 情景分析</h3>
+                <div class="chart-container">
+                    <canvas id="scenarioChart"></canvas>
+                </div>
+                <div class="mt-4 grid md:grid-cols-3 gap-4">
+                    <div class="text-center">
+                        <h4 class="font-semibold positive">Base Case | 基础情况</h4>
+                        <p class="text-muted text-sm">60% probability | 60%概率</p>
+                        <p class="text-sm">Current 15% maintained | 维持当前15%</p>
+                    </div>
+                    <div class="text-center">
+                        <h4 class="font-semibold negative">Escalation | 升级</h4>
+                        <p class="text-muted text-sm">25% probability | 25%概率</p>
+                        <p class="text-sm">Return to 30% threats | 回到30%威胁</p>
+                    </div>
+                    <div class="text-center">
+                        <h4 class="font-semibold positive">De-escalation | 缓解</h4>
+                        <p class="text-muted text-sm">15% probability | 15%概率</p>
+                        <p class="text-sm">Reduced to 8-10% | 降至8-10%</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-12">
+            <h2 class="text-xl font-bold section-border pb-2 mb-6">Key Conclusions | 主要结论</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="container-bg rounded-lg p-6">
+                    <h3 class="text-lg font-semibold accent-gold mb-4">Strategic Implications | 战略影响</h3>
+                    <ul class="space-y-3 text-muted">
+                        <li>• <strong class="accent-gold">New Trade Normal:</strong> 15% becomes baseline, not temporary | 15%成为基线，非临时</li>
+                        <li>• <strong class="accent-gold">Supply Chain Revolution:</strong> Fundamental restructuring toward regional blocs | 供应链革命：向区域集团重构</li>
+                        <li>• <strong class="accent-gold">Innovation Fragmentation:</strong> Reduced cross-Atlantic collaboration | 创新分化：跨大西洋合作减少</li>
+                        <li>• <strong class="accent-gold">Economic Regionalization:</strong> End of global integration era | 经济区域化：全球一体化时代结束</li>
+                    </ul>
+                </div>
+                
+                <div class="container-bg rounded-lg p-6">
+                    <h3 class="text-lg font-semibold accent-gold mb-4">Policy Recommendations | 政策建议</h3>
+                    <ul class="space-y-3 text-muted">
+                        <li>• <strong class="positive">Market Diversification:</strong> Accelerate Asia-Pacific agreements | 市场多元化：加速亚太协定</li>
+                        <li>• <strong class="positive">Supply Chain Resilience:</strong> Develop alternative sourcing | 供应链韧性：开发替代采购</li>
+                        <li>• <strong class="positive">Innovation Investment:</strong> Increase R&D for strategic sectors | 创新投资：增加战略部门研发</li>
+                        <li>• <strong class="positive">Strategic Autonomy:</strong> Reduce US market dependence | 战略自主：减少对美国市场依赖</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="container-bg py-6 px-6">
+        <div class="max-w-6xl mx-auto text-center text-muted">
+            <p>Analysis based on 27 official sources | 基于27个官方来源的分析</p>
+            <p>© 2025 Economic Research Institute | 2025年经济研究所</p>
+        </div>
+    </footer>
+
+    <script>
+        // EU Exposure Chart
+        const euExposureCtx = document.getElementById('euExposureChart').getContext('2d');
+        new Chart(euExposureCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Ireland\n爱尔兰', 'Germany\n德国', 'Italy\n意大利', 'Netherlands\n荷兰', 'France\n法国', 'Spain\n西班牙'],
+                datasets: [{
+                    data: [20.0, 5.0, 4.0, 3.2, 3.0, 2.1],
+                    backgroundColor: ['#ef4444', '#ef4444', '#ef4444', '#ef4444', '#ef4444', '#ef4444'],
+                    borderColor: '#334155',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        max: 22,
+                        grid: { color: '#334155' },
+                        ticks: { 
+                            color: '#f8fafc',
+                            callback: function(value) {
+                                return value.toFixed(1) + '%';
+                            }
+                        }
+                    },
+                    y: {
+                        grid: { color: '#334155' },
+                        ticks: { color: '#f8fafc' }
+                    }
+                }
+            }
+        });
+
+        // Sector Tariff Chart
+        const sectorTariffCtx = document.getElementById('sectorTariffChart').getContext('2d');
+        new Chart(sectorTariffCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Steel/Aluminum\n钢铁/铝', 'Agriculture\n农业', 'Automotive\n汽车', 'Machinery\n机械', 'Energy\n能源', 'Pharmaceuticals\n制药'],
+                datasets: [{
+                    data: [50, 15, 15, 15, 0, 5],
+                    backgroundColor: function(context) {
+                        const value = context.parsed.y;
+                        if (value === 0) return '#3b82f6';
+                        if (value >= 30) return '#ef4444';
+                        return '#c0a062';
+                    },
+                    borderColor: '#334155',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        max: 55,
+                        grid: { color: '#334155' },
+                        ticks: { 
+                            color: '#f8fafc',
+                            callback: function(value) {
+                                return value + '%';
+                            }
+                        }
+                    },
+                    y: {
+                        grid: { color: '#334155' },
+                        ticks: { color: '#f8fafc' }
+                    }
+                }
+            }
+        });
+
+        // Trade Volume Change Chart
+        const tradeVolumeCtx = document.getElementById('tradeVolumeChart').getContext('2d');
+        new Chart(tradeVolumeCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Automotive\n汽车', 'Pharmaceuticals\n制药', 'Energy\n能源', 'Machinery\n机械', 'Agriculture\n农业', 'Steel/Aluminum\n钢铁/铝'],
+                datasets: [{
+                    data: [-15, 3, 45, -8, -20, -35],
+                    backgroundColor: function(context) {
+                        const value = context.parsed.y;
+                        return value >= 0 ? '#3b82f6' : '#ef4444';
+                    },
+                    borderColor: '#334155',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    x: {
+                        grid: { color: '#334155' },
+                        ticks: { 
+                            color: '#f8fafc',
+                            callback: function(value) {
+                                return value + '%';
+                            }
+                        }
+                    },
+                    y: {
+                        grid: { color: '#334155' },
+                        ticks: { color: '#f8fafc' }
+                    }
+                }
+            }
+        });
+
+        // GDP Projection Chart
+        const gdpProjectionCtx = document.getElementById('gdpProjectionChart').getContext('2d');
+        new Chart(gdpProjectionCtx, {
+            type: 'line',
+            data: {
+                labels: ['2025', '2026', '2027', '2028'],
+                datasets: [{
+                    label: 'US GDP Impact | 美国GDP影响',
+                    data: [-0.9, -0.6, -0.4, -0.4],
+                    borderColor: '#ef4444',
+                    backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                    tension: 0.3
+                }, {
+                    label: 'EU GDP Impact | 欧盟GDP影响',
+                    data: [-0.3, -0.2, -0.1, 0.0],
+                    borderColor: '#3b82f6',
+                    backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                    tension: 0.3
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { 
+                        display: true,
+                        labels: { color: '#f8fafc' }
+                    }
+                },
+                scales: {
+                    x: {
+                        grid: { color: '#334155' },
+                        ticks: { color: '#f8fafc' }
+                    },
+                    y: {
+                        grid: { color: '#334155' },
+                        ticks: { 
+                            color: '#f8fafc',
+                            callback: function(value) {
+                                return value.toFixed(1) + '%';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // Scenario Chart
+        const scenarioCtx = document.getElementById('scenarioChart').getContext('2d');
+        new Chart(scenarioCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Base Case US\n基础情况美国', 'Base Case EU\n基础情况欧盟', 'Escalation US\n升级美国', 'Escalation EU\n升级欧盟', 'De-escalation US\n缓解美国', 'De-escalation EU\n缓解欧盟'],
+                datasets: [{
+                    data: [-0.9, -0.3, -1.7, -0.8, -0.4, -0.1],
+                    backgroundColor: function(context) {
+                        const value = context.parsed.y;
+                        if (value <= -1.0) return '#ef4444';
+                        if (value <= -0.5) return '#c0a062';
+                        return '#3b82f6';
+                    },
+                    borderColor: '#334155',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    x: {
+                        grid: { color: '#334155' },
+                        ticks: { color: '#f8fafc' }
+                    },
+                    y: {
+                        grid: { color: '#334155' },
+                        ticks: { 
+                            color: '#f8fafc',
+                            callback: function(value) {
+                                return value.toFixed(1) + '%';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
