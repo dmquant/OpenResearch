@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Market Report - July 29, 2025</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1e293b; /* Dark, desaturated slate blue */
+            color: #f8fafc; /* Off-white */
+        }
+        .container-bg {
+            background-color: #283447; /* Slightly lighter slate blue */
+        }
+        .accent-gold {
+            color: #c0a062; /* Muted, elegant gold */
+        }
+        .border-gold {
+            border-color: #c0a062;
+        }
+        .text-muted {
+            color: #94a3b8; /* Light, muted gray-blue */
+        }
+        .text-positive {
+            color: #3b82f6; /* Professional, medium blue */
+        }
+        .text-negative {
+            color: #ef4444; /* Clear, desaturated red */
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th {
+            background-color: #283447;
+            color: #c0a062;
+            padding: 0.75rem;
+            text-align: left;
+        }
+        td {
+            padding: 0.75rem;
+            border-bottom: 1px solid #334155;
+        }
+        tr:nth-child(even) {
+            background-color: #1e293b;
+        }
+        tr:nth-child(odd) {
+            background-color: #283447;
+        }
+        .chart-container {
+            background-color: #283447;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+        }
+    </style>
+</head>
+<body class="p-8">
+    <header class="mb-8">
+        <h1 class="text-3xl font-bold mb-4">Financial Market Report - July 29, 2025</h1>
+        <h1 class="text-3xl font-bold mb-4 hidden" id="zh-title">金融市场报告 - 2025年7月29日</h1>
+        <button onclick="toggleLanguage()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Toggle Language</button>
+    </header>
+
+    <main>
+        <section class="mb-8">
+            <h2 class="text-xl font-bold pb-2 border-b-2 border-gold mb-4">1. Market Index Performance</h2>
+            <h2 class="text-xl font-bold pb-2 border-b-2 border-gold mb-4 hidden" id="zh-market-index-title">1. 市场指数表现</h2>
+            <div class="lang-en">
+                <p class="mb-2">*   **Dow Jones Industrial Average (DJIA):** Slipped 0.1% but remains less than 0.5% away from a new high. Closed at 44,901.92, <span class="text-positive">up 0.47%</span> for the day.</p>
+                <p class="mb-2">*   **S&P 500:** Rose fractionally to close at a record for the sixth straight session. Gained 0.08% from the previous session, reaching 6394 points. It has climbed 3.04% over the past month and 17.03% compared to the same time last year. Closed at 6,388.64, <span class="text-positive">up 0.40%</span> for the day.</p>
+                <p class="mb-2">*   **Nasdaq Composite:** Added 0.3%, marking its 10th record close in the last 11 days. Closed at 21,108.32, <span class="text-positive">up 0.24%</span> for the day.</p>
+            </div>
+            <div class="lang-zh hidden">
+                <p class="mb-2">*   **道琼斯工业平均指数 (DJIA):** 下跌0.1%，但距离新高仍不到0.5%。收盘价为44,901.92，当日<span class="text-positive">上涨0.47%</span>。</p>
+                <p class="mb-2">*   **标准普尔500指数 (S&P 500):** 小幅上涨，连续第六个交易日创下新高。较前一交易日上涨0.08%，达到6394点。过去一个月上涨3.04%，与去年同期相比上涨17.03%。收盘价为6,388.64，当日<span class="text-positive">上涨0.40%</span>。</p>
+                <p class="mb-2">*   **纳斯达克综合指数 (Nasdaq Composite):** 上涨0.3%，创下过去11天内的第10个收盘新高。收盘价为21,108.32，当日<span class="text-positive">上涨0.24%</span>。</p>
+            </div>
+            <div class="chart-container mt-8">
+                <canvas id="marketIndexChart"></canvas>
+            </div>
+        </section>
+
+        <section class="mb-8">
+            <h2 class="text-xl font-bold pb-2 border-b-2 border-gold mb-4">2. Commodities and Cryptocurrencies Performance</h2>
+            <h2 class="text-xl font-bold pb-2 border-b-2 border-gold mb-4 hidden" id="zh-commodities-crypto-title">2. 大宗商品和加密货币表现</h2>
+            <h3 class="text-lg font-semibold mb-2">Commodities:</h3>
+            <h3 class="text-lg font-semibold mb-2 hidden" id="zh-commodities-subtitle">大宗商品:</h3>
+            <div class="lang-en">
+                <p class="mb-2">*   **Oil (Brent Crude):** Priced at $70.31 USD, showing a gain of <span class="text-positive">+2.73%</span>.</p>
+                <p class="mb-2">*   **Gold:** Traded range-bound. August gold futures at Rs 98,040 (<span class="text-positive">up 0.23%</span>) and COMEX prices around $3,341.40 per troy ounce (<span class="text-positive">gaining 0.17%</span>). Gold has slipped as trade optimism grows.</p>
+            </div>
+            <div class="lang-zh hidden">
+                <p class="mb-2">*   **原油 (布伦特原油):** 价格为70.31美元，<span class="text-positive">上涨2.73%</span>。</p>
+                <p class="mb-2">*   **黄金:** 交易区间震荡。8月黄金期货价格为98,040卢比（<span class="text-positive">上涨0.23%</span>），COMEX黄金价格约为每金衡盎司3,341.40美元（<span class="text-positive">上涨0.17%</span>）。随着贸易乐观情绪的增长，黄金有所下滑。</p>
+            </div>
+
+            <h3 class="text-lg font-semibold mb-2 mt-4">Cryptocurrencies:</h3>
+            <h3 class="text-lg font-semibold mb-2 mt-4 hidden" id="zh-cryptocurrencies-subtitle">加密货币:</h3>
+            <div class="lang-en">
+                <p class="mb-2">*   The overall crypto market capitalization is $3.75 trillion, representing a <span class="text-negative">0.53% decrease</span> from the previous week. The total cryptocurrency trading volume in the last day is $176 billion.</p>
+                <p class="mb-2">*   **Bitcoin (BTC):** Priced at $118,645.94, with a 7-day performance of <span class="text-positive">6.19%</span>.</p>
+                <p class="mb-2">*   **Ethereum (ETH):** Market cap of around $412.9 billion to $457.18 billion, with a 7-day performance of <span class="text-positive">22.78%</span>.</p>
+                <p class="mb-2">*   **XRP (XRP):** Market cap of $191.6 billion and a 7-day performance of <span class="text-positive">32.34%</span>.</p>
+                <p class="mb-2">*   **BNB (BNB):** Traded at $848.24, with a market cap of $119.21 billion.</p>
+                <p class="mb-2">*   **Solana (SOL):** Priced at $191.49, with a market cap of $103.6 billion.</p>
+            </div>
+            <div class="lang-zh hidden">
+                <p class="mb-2">*   加密货币市场总市值达3.75万亿美元，较上周<span class="text-negative">下降0.53%</span>。过去一天的加密货币交易总量为1760亿美元。</p>
+                <p class="mb-2">*   **比特币 (BTC):** 价格为118,645.94美元，7天表现为<span class="text-positive">6.19%</span>。</p>
+                <p class="mb-2">*   **以太坊 (ETH):** 市值约为4129亿至4571.8亿美元，7天表现为<span class="text-positive">22.78%</span>。</p>
+                <p class="mb-2">*   **瑞波币 (XRP):** 市值为1916亿美元，7天表现为<span class="text-positive">32.34%</span>。</p>
+                <p class="mb-2">*   **BNB (BNB):** 交易价格为848.24美元，市值为1192.1亿美元。</p>
+                <p class="mb-2">*   **Solana (SOL):** 价格为191.49美元，市值为1036亿美元。</p>
+            </div>
+            <div class="chart-container mt-8">
+                <canvas id="cryptoChart"></canvas>
+            </div>
+        </section>
+
+        <section class="mb-8">
+            <h2 class="text-xl font-bold pb-2 border-b-2 border-gold mb-4">3. Factors Impacting Market Moves</h2>
+            <h2 class="text-xl font-bold pb-2 border-b-2 border-gold mb-4 hidden" id="zh-factors-title">3. 影响市场走势的因素</h2>
+            <div class="lang-en">
+                <p class="mb-2">Several factors are currently influencing market movements:</p>
+                <ul class="list-disc list-inside ml-4">
+                    <li class="mb-1">*   **Federal Reserve Communications and Interest Rates:** Speculation regarding interest rate adjustments by the Federal Reserve significantly impacts investor sentiment and asset pricing.</li>
+                    <li class="mb-1">*   **Economic Data Releases:** Data on consumer behavior, employment rates, and overall economic health provide insights that can bolster or reduce market confidence.</li>
+                    <li class="mb-1">*   **Investor Sentiment:** Growing cautiousness among investors due to concerns about inflation and geopolitical tensions can cause rapid fluctuations in sentiment.</li>
+                    <li class="mb-1">*   **Corporate Earnings:** Strong corporate earnings reports, particularly from major companies, are expected to drive further market gains.</li>
+                    <li class="mb-1">*   **Technological Innovation and Disruption:** Sectors like artificial intelligence, renewable energy, and blockchain are experiencing exponential growth, reshaping industries and financial markets.</li>
+                    <li class="mb-1">*   **Geopolitical Tensions:** Events such as diplomatic tensions and regional conflicts can disrupt global supply chains and influence investor behavior.</li>
+                    <li class="mb-1">*   **Trade Deals:** Recent trade agreements, such as those between the US, EU, and Japan, can ease tariff concerns and positively impact market sentiment.</li>
+                    <li class="mb-1">*   **Supply and Demand:** Fundamental economic principles, where the balance between supply and demand for assets drives price movements.</li>
+                    <li class="mb-1">*   **Inflation:** The rate of inflation directly affects the discount rate used to value future earnings, impacting stock prices.</li>
+                    <li class="mb-1">*   **Government Fiscal and Monetary Policy:** Decisions regarding government spending, tax reform, and central bank policies have a broad impact on the economy and markets.</li>
+                    <li class="mb-1">*   **Company-Specific Performance:** Individual company results and risk factors play a role in stock performance.</li>
+                    <li class="mb-1">*   **News and Unexpected Developments:** Unforeseen events, product breakthroughs, mergers, and acquisitions can influence investor sentiment.</li>
+                </ul>
+            </div>
+            <div class="lang-zh hidden">
+                <p class="mb-2">目前有几个因素正在影响市场走势：</p>
+                <ul class="list-disc list-inside ml-4">
+                    <li class="mb-1">*   **美联储沟通和利率:** 对美联储利率调整的猜测显著影响投资者情绪和资产定价。</li>
+                    <li class="mb-1">*   **经济数据发布:** 消费者行为、就业率和整体经济健康状况的数据提供了可以增强或削弱市场信心的见解。</li>
+                    <li class="mb-1">*   **投资者情绪:** 由于对通货膨胀和地缘政治紧张局势的担忧，投资者日益谨慎，可能导致情绪的快速波动。</li>
+                    <li class="mb-1">*   **企业盈利:** 强劲的企业盈利报告，特别是来自主要公司的报告，预计将推动市场进一步上涨。</li>
+                    <li class="mb-1">*   **技术创新和颠覆:** 人工智能、可再生能源和区块链等领域正在经历指数级增长，重塑行业和金融市场。</li>
+                    <li class="mb-1">*   **地缘政治紧张局势:** 外交紧张局势和地区冲突等事件可能扰乱全球供应链并影响投资者行为。</li>
+                    <li class="mb-1">*   **贸易协议:** 最近的贸易协议，例如美国、欧盟和日本之间的协议，可以缓解关税担忧并对市场情绪产生积极影响。</li>
+                    <li class="mb-1">*   **供需:** 基本经济原则，资产供需之间的平衡驱动价格变动。</li>
+                    <li class="mb-1">*   **通货膨胀:** 通货膨胀率直接影响用于评估未来收益的折现率，从而影响股价。</li>
+                    <li class="mb-1">*   **政府财政和货币政策:** 有关政府支出、税收改革和中央银行政策的决定对经济和市场产生广泛影响。</li>
+                    <li class="mb-1">*   **公司特定表现:** 个别公司业绩和风险因素在股票表现中发挥作用。</li>
+                    <li class="mb-1">*   **新闻和意外发展:** 意外事件、产品突破、兼并和收购可能影响投资者情绪。</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="mb-8">
+            <h2 class="text-xl font-bold pb-2 border-b-2 border-gold mb-4">4. Upcoming Events and Short-Term Outlook</h2>
+            <h2 class="text-xl font-bold pb-2 border-b-2 border-gold mb-4 hidden" id="zh-upcoming-events-title">4. 即将发生的事件和短期展望</h2>
+            <div class="lang-en">
+                <ul class="list-disc list-inside ml-4">
+                    <li class="mb-1">*   **Upcoming Events:** The Federal Reserve's outcome is a key focus, implying upcoming decisions regarding interest rates.</li>
+                    <li class="mb-1">*   **Short-Term Factors and Predictions:** Speculation regarding interest rate adjustments by the Federal Reserve will continue to significantly impact investor sentiment. Strong corporate earnings reports, particularly from major companies, are expected to drive further market gains in the short term.</li>
+                </ul>
+            </div>
+            <div class="lang-zh hidden">
+                <ul class="list-disc list-inside ml-4">
+                    <li class="mb-1">*   **即将发生的事件:** 美联储的决策是关键焦点，这意味着即将出台有关利率的决定。</li>
+                    <li class="mb-1">*   **短期因素和预测:** 对美联储利率调整的猜测将继续显著影响投资者情绪。强劲的企业盈利报告，特别是来自主要公司的报告，预计将在短期内推动市场进一步上涨。</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Chart for Market Index Performance
+        const marketIndexCtx = document.getElementById('marketIndexChart').getContext('2d');
+        const marketIndexChart = new Chart(marketIndexCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Dow Jones Industrial Average', 'S&P 500', 'Nasdaq Composite'],
+                datasets: [{
+                    label: 'Daily Performance',
+                    data: [0.47, 0.40, 0.24],
+                    backgroundColor: [
+                        '#3b82f6', // Blue for positive
+                        '#3b82f6',
+                        '#3b82f6'
+                    ],
+                    borderColor: [
+                        '#3b82f6',
+                        '#3b82f6',
+                        '#3b82f6'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            color: '#f8fafc',
+                            callback: function(value) {
+                                return value.toFixed(2) + '%';
+                            }
+                        },
+                        grid: {
+                            color: '#334155'
+                        }
+                    },
+                    y: {
+                        ticks: {
+                            color: '#f8fafc'
+                        },
+                        grid: {
+                            color: '#334155'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Chart for Cryptocurrencies Performance (7-day)
+        const cryptoCtx = document.getElementById('cryptoChart').getContext('2d');
+        const cryptoChart = new Chart(cryptoCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Bitcoin (BTC)', 'Ethereum (ETH)', 'XRP (XRP)'],
+                datasets: [{
+                    label: '7-Day Performance',
+                    data: [6.19, 22.78, 32.34],
+                    backgroundColor: [
+                        '#3b82f6',
+                        '#3b82f6',
+                        '#3b82f6'
+                    ],
+                    borderColor: [
+                        '#3b82f6',
+                        '#3b82f6',
+                        '#3b82f6'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            color: '#f8fafc',
+                            callback: function(value) {
+                                return value.toFixed(2) + '%';
+                            }
+                        },
+                        grid: {
+                            color: '#334155'
+                        }
+                    },
+                    y: {
+                        ticks: {
+                            color: '#f8fafc'
+                        },
+                        grid: {
+                            color: '#334155'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Language Toggle
+        let isEnglish = true;
+
+        function toggleLanguage() {
+            isEnglish = !isEnglish;
+            document.querySelectorAll('.lang-en').forEach(el => {
+                el.classList.toggle('hidden', !isEnglish);
+            });
+            document.querySelectorAll('.lang-zh').forEach(el => {
+                el.classList.toggle('hidden', isEnglish);
+            });
+            document.getElementById('zh-title').classList.toggle('hidden', isEnglish);
+            document.getElementById('zh-market-index-title').classList.toggle('hidden', isEnglish);
+            document.getElementById('zh-commodities-crypto-title').classList.toggle('hidden', isEnglish);
+            document.getElementById('zh-commodities-subtitle').classList.toggle('hidden', isEnglish);
+            document.getElementById('zh-cryptocurrencies-subtitle').classList.toggle('hidden', isEnglish);
+            document.getElementById('zh-factors-title').classList.toggle('hidden', isEnglish);
+            document.getElementById('zh-upcoming-events-title').classList.toggle('hidden', isEnglish);
+        }
+    </script>
+</body>
+</html>

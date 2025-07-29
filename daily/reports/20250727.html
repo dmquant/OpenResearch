@@ -1,0 +1,301 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Market Report - July 27, 2025</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            background-color: #1e293b;
+            color: #f8fafc;
+            font-family: 'Inter', sans-serif;
+        }
+        .gold-border {
+            border-bottom: 2px solid #c0a062;
+        }
+        .container-bg {
+            background-color: #283447;
+        }
+        .positive {
+            color: #3b82f6;
+        }
+        .negative {
+            color: #ef4444;
+        }
+    </style>
+</head>
+<body class="p-8">
+    <header class="text-center mb-12">
+        <h1 class="text-3xl font-bold">Financial Market Report</h1>
+        <p class="text-lg text-gray-400">July 27, 2025</p>
+        <div class="mt-4">
+            <button id="lang-en" class="px-4 py-2 bg-slate-600 rounded-md">English</button>
+            <button id="lang-zh" class="px-4 py-2 bg-slate-700 rounded-md">中文</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="mb-12">
+            <h2 class="text-xl font-bold gold-border pb-2 mb-4" data-en="Market Indexes Performance" data-zh="市场指数表现">Market Indexes Performance</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="container-bg p-4 rounded-lg">
+                    <h3 class="text-lg font-semibold">Dow Jones (DJIA)</h3>
+                    <p class="text-2xl font-bold">44,693.91</p>
+                    <p class="positive">+209.66 (+0.47%)</p>
+                </div>
+                <div class="container-bg p-4 rounded-lg">
+                    <h3 class="text-lg font-semibold">S&P 500</h3>
+                    <p class="text-2xl font-bold">6,388.65</p>
+                    <p class="positive">+25.43 (+0.40%)</p>
+                </div>
+                <div class="container-bg p-4 rounded-lg">
+                    <h3 class="text-lg font-semibold">Nasdaq Composite</h3>
+                    <p class="text-2xl font-bold">21,057.96</p>
+                    <p class="positive">+37.94 (+0.61%)</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-12">
+            <h2 class="text-xl font-bold gold-border pb-2 mb-4" data-en="Commodities and Cryptocurrencies" data-zh="大宗商品和加密货币">Commodities and Cryptocurrencies</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4" data-en="Commodities" data-zh="大宗商品">Commodities</h3>
+                    <div class="container-bg p-4 rounded-lg">
+                        <canvas id="commoditiesChart"></canvas>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4" data-en="Cryptocurrencies" data-zh="加密货币">Cryptocurrencies</h3>
+                    <div class="container-bg p-4 rounded-lg">
+                        <p><strong data-en="Total Market Cap" data-zh="总市值">Total Market Cap:</strong> $3.67 Trillion (-1.36%)</p>
+                        <p><strong data-en="Bitcoin (BTC)" data-zh="比特币 (BTC)">Bitcoin (BTC):</strong> ~$118,500</p>
+                        <p><strong data-en="Ethereum (ETH)" data-zh="以太坊 (ETH)">Ethereum (ETH):</strong> $3,670.00</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-12">
+            <h2 class="text-xl font-bold gold-border pb-2 mb-4" data-en="Top Movers" data-zh="热门股票">Top Movers</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4" data-en="Top Moving Sectors" data-zh="热门板块">Top Moving Sectors</h3>
+                    <div class="container-bg p-4 rounded-lg">
+                        <canvas id="sectorsChart"></canvas>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4" data-en="Top Moving Stocks" data-zh="热门个股">Top Moving Stocks</h3>
+                    <div class="container-bg p-4 rounded-lg">
+                        <canvas id="stocksChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-12">
+            <h2 class="text-xl font-bold gold-border pb-2 mb-4" data-en="Market Factors" data-zh="市场影响因素">Market Factors</h2>
+            <div class="container-bg p-4 rounded-lg">
+                <ul class="list-disc list-inside">
+                    <li data-en="Inflation and Central Bank Policies" data-zh="通货膨胀和央行政策">Inflation and Central Bank Policies</li>
+                    <li data-en="Geopolitical Events" data-zh="地缘政治事件">Geopolitical Events</li>
+                    <li data-en="Corporate Earnings" data-zh="公司盈利">Corporate Earnings</li>
+                    <li data-en="International Trade" data-zh="国际贸易">International Trade</li>
+                    <li data-en="Economic Data Releases" data-zh="经济数据发布">Economic Data Releases</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="text-xl font-bold gold-border pb-2 mb-4" data-en="Upcoming Events" data-zh="近期事件">Upcoming Events</h2>
+            <div class="container-bg p-4 rounded-lg">
+                <ul class="list-disc list-inside">
+                    <li data-en="CPI, PPI, and Jobs Reports" data-zh="CPI、PPI和就业报告">CPI, PPI, and Jobs Reports</li>
+                    <li data-en="Central Bank Meetings" data-zh="央行会议">Central Bank Meetings</li>
+                    <li data-en="Corporate Earnings Season" data-zh="公司财报季">Corporate Earnings Season</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const translations = {
+            en: {
+                "Market Indexes Performance": "Market Indexes Performance",
+                "Commodities and Cryptocurrencies": "Commodities and Cryptocurrencies",
+                "Commodities": "Commodities",
+                "Cryptocurrencies": "Cryptocurrencies",
+                "Total Market Cap": "Total Market Cap",
+                "Bitcoin (BTC)": "Bitcoin (BTC)",
+                "Ethereum (ETH)": "Ethereum (ETH)",
+                "Top Movers": "Top Movers",
+                "Top Moving Sectors": "Top Moving Sectors",
+                "Top Moving Stocks": "Top Moving Stocks",
+                "Market Factors": "Market Factors",
+                "Inflation and Central Bank Policies": "Inflation and Central Bank Policies",
+                "Geopolitical Events": "Geopolitical Events",
+                "Corporate Earnings": "Corporate Earnings",
+                "International Trade": "International Trade",
+                "Economic Data Releases": "Economic Data Releases",
+                "Upcoming Events": "Upcoming Events",
+                "CPI, PPI, and Jobs Reports": "CPI, PPI, and Jobs Reports",
+                "Central Bank Meetings": "Central Bank Meetings",
+                "Corporate Earnings Season": "Corporate Earnings Season"
+            },
+            zh: {
+                "Market Indexes Performance": "市场指数表现",
+                "Commodities and Cryptocurrencies": "大宗商品和加密货币",
+                "Commodities": "大宗商品",
+                "Cryptocurrencies": "加密货币",
+                "Total Market Cap": "总市值",
+                "Bitcoin (BTC)": "比特币 (BTC)",
+                "Ethereum (ETH)": "以太坊 (ETH)",
+                "Top Movers": "热门股票",
+                "Top Moving Sectors": "热门板块",
+                "Top Moving Stocks": "热门个股",
+                "Market Factors": "市场影响因素",
+                "Inflation and Central Bank Policies": "通货膨胀和央行政策",
+                "Geopolitical Events": "地缘政治事件",
+                "Corporate Earnings": "公司盈利",
+                "International Trade": "国际贸易",
+                "Economic Data Releases": "经济数据发布",
+                "Upcoming Events": "近期事件",
+                "CPI, PPI, and Jobs Reports": "CPI、PPI和就业报告",
+                "Central Bank Meetings": "央行会议",
+                "Corporate Earnings Season": "公司财报季"
+            }
+        };
+
+        document.getElementById('lang-en').addEventListener('click', () => setLanguage('en'));
+        document.getElementById('lang-zh').addEventListener('click', () => setLanguage('zh'));
+
+        function setLanguage(lang) {
+            document.querySelectorAll('[data-en]').forEach(el => {
+                el.innerText = el.dataset[lang];
+            });
+        }
+
+        const commoditiesChart = new Chart(document.getElementById('commoditiesChart'), {
+            type: 'bar',
+            data: {
+                labels: ['Crude Oil', 'Brent Crude', 'Gold'],
+                datasets: [{
+                    label: '% Change',
+                    data: [-1.45, -1.19, -0.93],
+                    backgroundColor: [
+                        '#ef4444',
+                        '#ef4444',
+                        '#ef4444'
+                    ]
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                scales: {
+                    x: {
+                        ticks: {
+                            color: '#f8fafc'
+                        },
+                        grid: {
+                            color: '#334155'
+                        }
+                    },
+                    y: {
+                        ticks: {
+                            color: '#f8fafc'
+                        },
+                        grid: {
+                            color: '#334155'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+
+        const sectorsChart = new Chart(document.getElementById('sectorsChart'), {
+            type: 'bar',
+            data: {
+                labels: ['Consumer Durables', 'Transportation', 'Producer Manufacturing', 'Health Services', 'Industrial Services'],
+                datasets: [{
+                    label: 'Daily Change (%)',
+                    data: [1.87, 1.12, 0.95, 0.70, 0.58],
+                    backgroundColor: '#3b82f6'
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                scales: {
+                    x: {
+                        ticks: {
+                            color: '#f8fafc'
+                        },
+                        grid: {
+                            color: '#334155'
+                        }
+                    },
+                    y: {
+                        ticks: {
+                            color: '#f8fafc'
+                        },
+                        grid: {
+                            color: '#334155'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+
+        const stocksChart = new Chart(document.getElementById('stocksChart'), {
+            type: 'bar',
+            data: {
+                labels: ['COUR', 'FIX', 'BELFA', 'MENS', 'BELFB'],
+                datasets: [{
+                    label: '% Change',
+                    data: [36.23, 22.37, 20.21, 17.15, 16.37],
+                    backgroundColor: '#3b82f6'
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                scales: {
+                    x: {
+                        ticks: {
+                            color: '#f8fafc'
+                        },
+                        grid: {
+                            color: '#334155'
+                        }
+                    },
+                    y: {
+                        ticks: {
+                            color: '#f8fafc'
+                        },
+                        grid: {
+                            color: '#334155'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

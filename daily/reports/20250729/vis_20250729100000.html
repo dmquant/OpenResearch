@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-en="Daily Global Financial Market Report" data-zh="全球金融市场日报">Daily Global Financial Market Report</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1e293b; /* Page Background */
+            color: #f8fafc; /* Primary Text */
+        }
+        .container-bg {
+            background-color: #283447; /* Container Backgrounds */
+        }
+        .accent-gold {
+            color: #c0a062;
+        }
+        .border-gold {
+            border-color: #c0a062;
+        }
+        .muted-text {
+            color: #94a3b8; /* Muted / Note Text */
+        }
+        .positive-value {
+            color: #3b82f6; /* Positive Values (Up) */
+        }
+        .negative-value {
+            color: #ef4444; /* Negative Values (Down) */
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th {
+            background-color: #283447;
+            color: #c0a062;
+            padding: 12px;
+            text-align: left;
+        }
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #334155;
+        }
+        tr:nth-child(even) {
+            background-color: #1e293b;
+        }
+        tr:nth-child(odd) {
+            background-color: #283447;
+        }
+        .chart-container {
+            background-color: #283447;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+<body class="p-8">
+    <header class="flex justify-between items-center mb-8">
+        <h1 class="text-3xl font-bold accent-gold" data-en="Daily Global Financial Market Report" data-zh="全球金融市场日报">Daily Global Financial Market Report</h1>
+        <div class="language-toggle">
+            <button id="lang-en" class="px-4 py-2 rounded-md bg-blue-600 text-white">English</button>
+            <button id="lang-zh" class="px-4 py-2 rounded-md bg-gray-700 text-white">简体中文</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="mb-8">
+            <h2 class="text-xl font-bold pb-2 border-b-2 border-gold mb-4" data-en="1. Market Performance Overview (July 28, 2025 Closing Prices)" data-zh="1. 市场表现概览（2025年7月28日收盘价）">1. Market Performance Overview (July 28, 2025 Closing Prices)</h2>
+            <p class="mb-4 muted-text" data-en="Reporting Date: July 29, 2025 | Last Trading Day: July 28, 2025" data-zh="报告日期：2025年7月29日 | 最后交易日：2025年7月28日">Reporting Date: July 29, 2025 | Last Trading Day: July 28, 2025</p>
+
+            <h3 class="text-lg font-semibold mb-2" data-en="Major US Stock Indexes:" data-zh="主要美国股指：">Major US Stock Indexes:</h3>
+            <div class="overflow-x-auto mb-6">
+                <table class="min-w-full rounded-lg overflow-hidden">
+                    <thead>
+                        <tr>
+                            <th data-en="Index" data-zh="指数">Index</th>
+                            <th data-en="Closing Price" data-zh="收盘价">Closing Price</th>
+                            <th data-en="Change" data-zh="涨跌">Change</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-en="S&P 500" data-zh="标普500">S&P 500</td>
+                            <td>6,389.77</td>
+                            <td class="positive-value">up 0.01%</td>
+                        </tr>
+                        <tr>
+                            <td data-en="Dow Jones Industrial Average" data-zh="道琼斯工业平均指数">Dow Jones Industrial Average</td>
+                            <td>44,837.56</td>
+                            <td class="negative-value">down 0.1%</td>
+                        </tr>
+                        <tr>
+                            <td data-en="Nasdaq Composite" data-zh="纳斯达克综合指数">Nasdaq Composite</td>
+                            <td>21,178.58</td>
+                            <td class="positive-value">up 0.3%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="chart-container">
+                <canvas id="usIndexesChart"></canvas>
+            </div>
+
+            <h3 class="text-lg font-semibold mb-2" data-en="Commodities:" data-zh="大宗商品：">Commodities:</h3>
+            <div class="overflow-x-auto mb-6">
+                <table class="min-w-full rounded-lg overflow-hidden">
+                    <thead>
+                        <tr>
+                            <th data-en="Commodity" data-zh="商品">Commodity</th>
+                            <th data-en="Closing Price" data-zh="收盘价">Closing Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-en="Brent Crude Oil" data-zh="布伦特原油">Brent Crude Oil</td>
+                            <td>$70.30 USD/Bbl</td>
+                        </tr>
+                        <tr>
+                            <td data-en="WTI Crude Oil" data-zh="西德克萨斯中质原油">WTI Crude Oil</td>
+                            <td>$67.05 USD/Bbl</td>
+                        </tr>
+                        <tr>
+                            <td data-en="Gold" data-zh="黄金">Gold</td>
+                            <td>$3,312.76 USD/t.oz</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 class="text-lg font-semibold mb-2" data-en="Cryptocurrencies:" data-zh="加密货币：">Cryptocurrencies:</h3>
+            <div class="overflow-x-auto mb-6">
+                <table class="min-w-full rounded-lg overflow-hidden">
+                    <thead>
+                        <tr>
+                            <th data-en="Cryptocurrency" data-zh="加密货币">Cryptocurrency</th>
+                            <th data-en="Closing Price" data-zh="收盘价">Closing Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-en="Bitcoin (CoinDesk Bitcoin Price Index)" data-zh="比特币（CoinDesk比特币价格指数）">Bitcoin (CoinDesk Bitcoin Price Index)</td>
+                            <td>$118,070.35</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="mb-8">
+            <h2 class="text-xl font-bold pb-2 border-b-2 border-gold mb-4" data-en="2. Factors Impacting Latest Market Moves" data-zh="2. 影响近期市场走势的因素">2. Factors Impacting Latest Market Moves</h2>
+            <p class="mb-4" data-en="Several key factors influenced global financial markets on July 28, 2025:" data-zh="2025年7月28日，全球金融市场受到几个关键因素的影响："></p>
+
+            <h3 class="text-lg font-semibold mb-2" data-en="Trade and Geopolitical Developments:" data-zh="贸易和地缘政治发展：">Trade and Geopolitical Developments:</h3>
+            <ul class="list-disc list-inside mb-4">
+                <li data-en="A significant U.S.-European Union trade deal was announced, setting a 15% import tariff on most EU goods, aiming to avert a larger trade war." data-zh="美国与欧盟宣布达成一项重要的贸易协议，对大多数欧盟商品设定15%的进口关税，旨在避免更大规模的贸易战。">A significant U.S.-European Union trade deal was announced, setting a 15% import tariff on most EU goods, aiming to avert a larger trade war.</li>
+                <li data-en="The U.S. and Japan finalized a comprehensive trade agreement." data-zh="美国和日本最终敲定了一项全面的贸易协议。">The U.S. and Japan finalized a comprehensive trade agreement.</li>
+                <li data-en="Discussions between China and the U.S. were ongoing, with reports suggesting a potential extension of a trade truce." data-zh="中美之间的讨论仍在进行中，有报道称贸易休战可能延长。">Discussions between China and the U.S. were ongoing, with reports suggesting a potential extension of a trade truce.</li>
+                <li data-en="Ongoing geopolitical issues, particularly in Eastern Europe and the Middle East, continued to contribute to market uncertainty." data-zh="持续的地缘政治问题，特别是在东欧和中东地区，继续加剧市场不确定性。">Ongoing geopolitical issues, particularly in Eastern Europe and the Middle East, continued to contribute to market uncertainty.</li>
+            </ul>
+
+            <h3 class="text-lg font-semibold mb-2" data-en="Economic Data and Central Bank Policies:" data-zh="经济数据和央行政策：">Economic Data and Central Bank Policies:</h3>
+            <ul class="list-disc list-inside mb-4">
+                <li data-en="Investors anticipated a busy week for economic news, including advance second-quarter GDP data, the latest labor market report for July, and key inflation data (PCE) from the U.S." data-zh="投资者预计本周经济新闻繁忙，包括美国第二季度GDP先行数据、7月最新劳动力市场报告以及关键通胀数据（PCE）。">Investors anticipated a busy week for economic news, including advance second-quarter GDP data, the latest labor market report for July, and key inflation data (PCE) from the U.S.</li>
+                <li data-en="The Federal Reserve was expected to make an interest rate announcement later in the week, with expectations for rates to remain steady. The Bank of Canada was also likely to hold rates steady." data-zh="美联储预计将于本周晚些时候公布利率决定，预计利率将保持稳定。加拿大央行也可能维持利率不变。">The Federal Reserve was expected to make an interest rate announcement later in the week, with expectations for rates to remain steady. The Bank of Canada was also likely to hold rates steady.</li>
+                <li data-en="In the Eurozone, inflationary pressures led to a stronger Euro, with speculation of a potential interest rate hike from the European Central Bank." data-zh="在欧元区，通胀压力导致欧元走强，市场猜测欧洲央行可能加息。">In the Eurozone, inflationary pressures led to a stronger Euro, with speculation of a potential interest rate hike from the European Central Bank.</li>
+            </ul>
+
+            <h3 class="text-lg font-semibold mb-2" data-en="Corporate Earnings and Sector Performance:" data-zh="企业盈利和行业表现：">Corporate Earnings and Sector Performance:</h3>
+            <ul class="list-disc list-inside mb-4">
+                <li data-en="The week was set to bring a flood of earnings reports from major companies, particularly in the tech sector." data-zh="本周将迎来主要公司，特别是科技行业的密集财报。">The week was set to bring a flood of earnings reports from major companies, particularly in the tech sector.</li>
+                <li data-en="Shares of Super Micro Computer surged over 10% following reports of loosened U.S. restrictions on technological exports to China. Nike's stock also rose after an upgrade." data-zh="超微电脑（Super Micro Computer）股价飙升超过10%，此前有报道称美国放宽了对华技术出口限制。耐克（Nike）股价也在评级上调后上涨。">Shares of Super Micro Computer surged over 10% following reports of loosened U.S. restrictions on technological exports to China. Nike's stock also rose after an upgrade.</li>
+                <li data-en="Conversely, Albemarle, the world's largest lithium producer, saw a nearly 11% decline, and Revvity shares fell after its quarterly earnings release." data-zh="相反，全球最大的锂生产商雅宝（Albemarle）股价下跌近11%，而Revvity股价在发布季度财报后下跌。">Conversely, Albemarle, the world's largest lithium producer, saw a nearly 11% decline, and Revvity shares fell after its quarterly earnings release.</li>
+                <li data-en="Indian equity markets experienced a downturn, dragged by selling pressure in banking, IT, and realty sectors." data-zh="印度股市经历下行，受银行、IT和房地产板块抛售压力的拖累。">Indian equity markets experienced a downturn, dragged by selling pressure in banking, IT, and realty sectors.</li>
+                <li data-en="Companies in the chip and artificial intelligence (AI) industries generally showed strength, with Advanced Micro Devices (AMD) gaining and Tesla signing a significant deal with Samsung for AI chips." data-zh="芯片和人工智能（AI）行业的公司普遍表现强劲，超微半导体（AMD）上涨，特斯拉与三星签署了一项重要的AI芯片协议。">Companies in the chip and artificial intelligence (AI) industries generally showed strength, with Advanced Micro Devices (AMD) gaining and Tesla signing a significant deal with Samsung for AI chips.</li>
+            </ul>
+
+            <h3 class="text-lg font-semibold mb-2" data-en="Commodities and Other Factors:" data-zh="大宗商品及其他因素：">Commodities and Other Factors:</h3>
+            <ul class="list-disc list-inside mb-4">
+                <li data-en="Oil prices were expected to receive a boost from recent tariff developments." data-zh="油价预计将受到近期关税发展提振。">Oil prices were expected to receive a boost from recent tariff developments.</li>
+                <li data-en="New U.S. legislation, the &quot;Genius Act,&quot; was cementing the role of stablecoins as a payment method, potentially solidifying the U.S. dollar's dominance in global markets." data-zh="美国新立法《天才法案》正在巩固稳定币作为支付方式的作用，可能巩固美元在全球市场的主导地位。">New U.S. legislation, the "Genius Act," was cementing the role of stablecoins as a payment method, potentially solidifying the U.S. dollar's dominance in global markets.</li>
+                <li data-en="Rising electricity costs, partly attributed to the swift expansion of AI data centers, were also noted." data-zh="电费上涨，部分归因于AI数据中心的快速扩张，也受到关注。">Rising electricity costs, partly attributed to the swift expansion of AI data centers, were also noted.</li>
+            </ul>
+        </section>
+
+        <section class="mb-8">
+            <h2 class="text-xl font-bold pb-2 border-b-2 border-gold mb-4" data-en="3. Performance of Flagged Stocks" data-zh="3. 重点关注股票表现">3. Performance of Flagged Stocks</h2>
+
+            <h3 class="text-lg font-semibold mb-2" data-en="Magnificent 7 Stocks (July 28, 2025 Closing Prices):" data-zh="七巨头股票（2025年7月28日收盘价）：">Magnificent 7 Stocks (July 28, 2025 Closing Prices):</h3>
+            <div class="overflow-x-auto mb-6">
+                <table class="min-w-full rounded-lg overflow-hidden">
+                    <thead>
+                        <tr>
+                            <th data-en="Stock" data-zh="股票">Stock</th>
+                            <th data-en="Closing Price" data-zh="收盘价">Closing Price</th>
+                            <th data-en="Performance" data-zh="表现">Performance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-en="NVIDIA (NVDA)" data-zh="英伟达（NVDA）">NVIDIA (NVDA)</td>
+                            <td>$176.75</td>
+                            <td class="positive-value">up 0.78%</td>
+                        </tr>
+                        <tr>
+                            <td data-en="Alphabet (GOOGL/GOOG)" data-zh="Alphabet (GOOGL/GOOG)">Alphabet (GOOGL/GOOG)</td>
+                            <td>GOOGL $193.20, GOOG $194.06</td>
+                            <td class="positive-value">up 0.42% (GOOGL), up 0.4% (GOOG)</td>
+                        </tr>
+                        <tr>
+                            <td data-en="Tesla (TSLA)" data-zh="特斯拉（TSLA）">Tesla (TSLA)</td>
+                            <td>$328.30</td>
+                            <td class="positive-value">increased by 3.9%</td>
+                        </tr>
+                        <tr>
+                            <td data-en="Microsoft (MSFT)" data-zh="微软（MSFT）">Microsoft (MSFT)</td>
+                            <td>$512.50</td>
+                            <td class="negative-value">slipped 0.2%</td>
+                        </tr>
+                        <tr>
+                            <td data-en="Amazon (AMZN)" data-zh="亚马逊（AMZN）">Amazon (AMZN)</td>
+                            <td>$232.79</td>
+                            <td class="positive-value">gained 2.49%</td>
+                        </tr>
+                        <tr>
+                            <td data-en="Meta Platforms (META)" data-zh="Meta Platforms (META)">Meta Platforms (META)</td>
+                            <td>$717.86</td>
+                            <td class="positive-value">up $0.70</td>
+                        </tr>
+                        <tr>
+                            <td data-en="Apple (AAPL)" data-zh="苹果（AAPL）">Apple (AAPL)</td>
+                            <td>$213.91</td>
+                            <td class="positive-value">up 0.1%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="chart-container">
+                <canvas id="mag7Chart"></canvas>
+            </div>
+
+            <h3 class="text-lg font-semibold mb-2" data-en="Other Flagged Stocks:" data-zh="其他重点关注股票：">Other Flagged Stocks:</h3>
+            <ul class="list-disc list-inside mb-4">
+                <li data-en="**Banks:** Indian banking sector experienced declines, with the Nifty Private Bank index falling 1.13%. In the U.S., ServisFirst Bank and Cadence Bank were recognized for strong performance and services. California BanCorp reported strong Q2 earnings." data-zh="**银行：** 印度银行业出现下跌，Nifty私人银行指数下跌1.13%。在美国，ServisFirst Bank和Cadence Bank因其强劲表现和服务而受到认可。California BanCorp公布了强劲的第二季度收益。">**Banks:** Indian banking sector experienced declines, with the Nifty Private Bank index falling 1.13%. In the U.S., ServisFirst Bank and Cadence Bank were recognized for strong performance and services. California BanCorp reported strong Q2 earnings.</li>
+                <li data-en="**Energy:** Mixed results. Canadian energy stocks faced pressure from falling crude oil and natural gas prices. In the U.S., oil futures traded higher, and energy commodities rose with the U.S. Dollar. GE Vernova shares traded down, while Tesla (also an energy player) was up." data-zh="**能源：** 表现喜忧参半。加拿大能源股面临原油和天然气价格下跌的压力。在美国，原油期货走高，能源商品随美元上涨。GE Vernova股价下跌，而特斯拉（也是能源领域参与者）股价上涨。</li>
+                <li data-en="**Manufacturing:** Simpson Manufacturing Co., Inc. reported strong Q2 2025 results with increased sales and income. Jabil Inc. saw an increase in current year earnings estimate. Nucor Corporation reported sequential earnings growth. New orders for U.S. manufactured capital goods unexpectedly fell in June." data-zh="**制造业：** Simpson Manufacturing Co., Inc.公布了强劲的2025年第二季度业绩，销售额和收入均有所增长。Jabil Inc.的本年度盈利预期有所提高。Nucor Corporation报告了所有部门的连续盈利增长。美国制造业资本货物新订单在6月份意外下降。</li>
+                <li data-en="**Consumer-Related Stocks:** Nike's stock rose after an upgrade. Hasbro, Inc. was added to the Zacks Rank #1 (Strong Buy) List. LendingTree, Inc. saw its earnings estimate increase. The Nifty FMCG index in India closed in positive territory." data-zh="**消费相关股票：** 耐克股价在评级上调后上涨。孩之宝（Hasbro, Inc.）被列入Zacks评级#1（强力买入）名单。LendingTree, Inc.的盈利预期有所提高。印度Nifty FMCG指数收盘上涨。">**Consumer-Related Stocks:** Nike's stock rose after an upgrade. Hasbro, Inc. was added to the Zacks Rank #1 (Strong Buy) List. LendingTree, Inc. saw its earnings estimate increase. The Nifty FMCG index in India closed in positive territory.</li>
+            </ul>
+        </section>
+
+        <section class="mb-8">
+            <h2 class="text-xl font-bold pb-2 border-b-2 border-gold mb-4" data-en="4. Top Movers in US Stock Market" data-zh="4. 美国股市涨跌幅榜">4. Top Movers in US Stock Market</h2>
+
+            <h3 class="text-lg font-semibold mb-2" data-en="Top Gainers:" data-zh="涨幅榜：">Top Gainers:</h3>
+            <div class="overflow-x-auto mb-6">
+                <table class="min-w-full rounded-lg overflow-hidden">
+                    <thead>
+                        <tr>
+                            <th data-en="Stock" data-zh="股票">Stock</th>
+                            <th data-en="Performance" data-zh="表现">Performance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-en="Super Micro Computer (SMCI)" data-zh="超微电脑（SMCI）">Super Micro Computer (SMCI)</td>
+                            <td class="positive-value">Surged over 10%</td>
+                        </tr>
+                        <tr>
+                            <td data-en="Advanced Micro Devices (AMD)" data-zh="超微半导体（AMD）">Advanced Micro Devices (AMD)</td>
+                            <td class="positive-value">Gained 4.3%</td>
+                        </tr>
+                        <tr>
+                            <td data-en="Nike (NKE)" data-zh="耐克（NKE）">Nike (NKE)</td>
+                            <td class="positive-value">Rose 3.9%</td>
+                        </tr>
+                        <tr>
+                            <td data-en="Tesla (TSLA)" data-zh="特斯拉（TSLA）">Tesla (TSLA)</td>
+                            <td class="positive-value">Increased by 3%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 class="text-lg font-semibold mb-2" data-en="Top Losers:" data-zh="跌幅榜：">Top Losers:</h3>
+            <div class="overflow-x-auto mb-6">
+                <table class="min-w-full rounded-lg overflow-hidden">
+                    <thead>
+                        <tr>
+                            <th data-en="Stock" data-zh="股票">Stock</th>
+                            <th data-en="Performance" data-zh="表现">Performance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-en="Albemarle (ALB)" data-zh="雅宝（ALB）">Albemarle (ALB)</td>
+                            <td class="negative-value">Dropped nearly 11%</td>
+                        </tr>
+                        <tr>
+                            <td data-en="Revvity (RVTY)" data-zh="Revvity (RVTY)">Revvity (RVTY)</td>
+                            <td class="negative-value">Fell 8.3%</td>
+                        </tr>
+                        <tr>
+                            <td data-en="Centene (CNC)" data-zh="Centene (CNC)">Centene (CNC)</td>
+                            <td class="negative-value">Slipped 5.4%</td>
+                        </tr>
+                        <tr>
+                            <td data-en="Nucor (NUE)" data-zh="纽柯（NUE）">Nucor (NUE)</td>
+                            <td class="negative-value">Was down 5.5%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="chart-container">
+                <canvas id="topMoversChart"></canvas>
+            </div>
+        </section>
+
+        <section class="mb-8">
+            <h2 class="text-xl font-bold pb-2 border-b-2 border-gold mb-4" data-en="5. Upcoming Events" data-zh="5. 即将发生的事件">5. Upcoming Events</h2>
+            <p class="mb-4" data-en="Given that today is July 29, 2025, the remaining upcoming economic events for July 2025 include:" data-zh="鉴于今天是2025年7月29日，2025年7月剩余的经济事件包括："></p>
+            <ul class="list-disc list-inside mb-4">
+                <li data-en="**July 29-30, 2025:** Eurozone Q2 flash GDP and preliminary July inflation data are expected to be released." data-zh="**2025年7月29-30日：** 欧元区第二季度GDP初值和7月初步通胀数据预计将公布。">**July 29-30, 2025:** Eurozone Q2 flash GDP and preliminary July inflation data are expected to be released.</li>
+                <li data-en="**July 31, 2025:** The Bank of Japan's next meeting is scheduled." data-zh="**2025年7月31日：** 日本央行下一次会议定于举行。">**July 31, 2025:** The Bank of Japan's next meeting is scheduled.</li>
+            </ul>
+            <p class="mb-4" data-en="Central bank decisions and economic indicators can significantly influence markets. For instance, Federal Open Market Committee (FOMC) meetings and their subsequent statements, announcements, and interest rate decisions are considered major economic events that heavily influence the US economy and interest rates." data-zh="央行决策和经济指标可以显著影响市场。例如，联邦公开市场委员会（FOMC）会议及其后续声明、公告和利率决定被认为是严重影响美国经济和利率的主要经济事件。">Central bank decisions and economic indicators can significantly influence markets. For instance, Federal Open Market Committee (FOMC) meetings and their subsequent statements, announcements, and interest rate decisions are considered major economic events that heavily influence the US economy and interest rates.</p>
+        </section>
+
+        <section class="mb-8">
+            <h2 class="text-xl font-bold pb-2 border-b-2 border-gold mb-4" data-en="6. Short-Term Market Factors and Predictions" data-zh="6. 短期市场因素和预测">6. Short-Term Market Factors and Predictions</h2>
+            <p class="mb-4" data-en="Several short-term factors are significantly impacting the market in July 2025, with predictions pointing to continued volatility and a cautious economic outlook." data-zh="2025年7月，几个短期因素显著影响市场，预测指向持续波动和谨慎的经济前景。"></p>
+
+            <h3 class="text-lg font-semibold mb-2" data-en="Key Short-Term Factors:" data-zh="关键短期因素：">Key Short-Term Factors:</h3>
+            <ul class="list-disc list-inside mb-4">
+                <li data-en="**Tariffs and Trade Policy:** Trade tensions remain a primary concern, with the current tariff rate at 15% and an ongoing risk of re-escalation. This contributes to a projected slowdown in GDP growth and an anticipated rise in core inflation." data-zh="**关税和贸易政策：** 贸易紧张局势仍然是主要关注点，当前关税税率为15%，并存在重新升级的持续风险。这导致GDP增长预计放缓，核心通胀预计上升。">**Tariffs and Trade Policy:** Trade tensions remain a primary concern, with the current tariff rate at 15% and an ongoing risk of re-escalation. This contributes to a projected slowdown in GDP growth and an anticipated rise in core inflation.</li>
+                <li data-en="**Inflationary Pressures:** Despite recent &quot;tame&quot; inflation data, the effects of tariffs are expected to push core inflation above 3% by the end of 2025." data-zh="**通胀压力：** 尽管近期通胀数据“温和”，但关税的影响预计将使核心通胀在2025年底前推高至3%以上。">**Inflationary Pressures:** Despite recent "tame" inflation data, the effects of tariffs are expected to push core inflation above 3% by the end of 2025.</li>
+                <li data-en="**Labor Market Softening:** There is growing evidence of a cooling labor market, with the unemployment rate projected to reach around 4.5% by year-end. Nonfarm payrolls are slowing, and wage growth has moderated." data-zh="**劳动力市场疲软：** 越来越多的证据表明劳动力市场正在降温，预计到年底失业率将达到4.5%左右。非农就业人数正在放缓，工资增长已趋于温和。">**Labor Market Softening:** There is growing evidence of a cooling labor market, with the unemployment rate projected to reach around 4.5% by year-end. Nonfarm payrolls are slowing, and wage growth has moderated.</li>
+                <li data-en="**Slowing Economic Growth (GDP):** Real GDP growth is expected to slow, with some forecasts placing it below 1% for the year." data-zh="**经济增长放缓（GDP）：** 实际GDP增长预计将放缓，一些预测将其置于今年1%以下。">**Slowing Economic Growth (GDP):** Real GDP growth is expected to slow, with some forecasts placing it below 1% for the year.</li>
+                <li data-en="**Consumer Spending and Business Investment:** Consumer spending is expected to cool due to higher prices from tariffs and increased saving in an uncertain environment. Business investment is also likely to slow further amid trade policy uncertainty and potential supply chain disruptions." data-zh="**消费者支出和商业投资：** 由于关税导致的价格上涨和不确定环境下储蓄增加，消费者支出预计将降温。在贸易政策不确定性和潜在供应链中断的情况下，商业投资也可能进一步放缓。">**Consumer Spending and Business Investment:** Consumer spending is expected to cool due to higher prices from tariffs and increased saving in an uncertain environment. Business investment is also likely to slow further amid trade policy uncertainty and potential supply chain disruptions.</li>
+                <li data-en="**Federal Reserve Policy:** The Federal Reserve has maintained steady interest rates, showing reluctance to lower them due to the conflicting effects of tariffs." data-zh="**美联储政策：** 美联储维持利率稳定，由于关税的冲突效应，不愿降息。">**Federal Reserve Policy:** The Federal Reserve has maintained steady interest rates, showing reluctance to lower them due to the conflicting effects of tariffs.</li>
+                <li data-en="**Corporate Earnings:** S&P 500 earnings growth expectations have been reduced from 14% to 8-10% due to tariff impacts, making the market susceptible to downside risk if profits disappoint." data-zh="**企业盈利：** 标普500指数盈利增长预期已从14%下调至8-10%，如果利润令人失望，市场容易面临下行风险。">**Corporate Earnings:** S&P 500 earnings growth expectations have been reduced from 14% to 8-10% due to tariff impacts, making the market susceptible to downside risk if profits disappoint.</li>
+                <li data-en="**Geopolitical Tensions:** Ongoing geopolitical tensions continue to contribute to market volatility and investor uncertainty." data-zh="**地缘政治紧张局势：** 持续的地缘政治紧张局势继续加剧市场波动和投资者不确定性。">**Geopolitical Tensions:** Ongoing geopolitical tensions continue to contribute to market volatility and investor uncertainty.</li>
+                <li data-en="**Market Valuations:** US stocks are trading at above-average price-to-earnings multiples, with some analysts considering valuations &quot;excessive.&quot;" data-zh="**市场估值：** 美国股市的市盈率高于平均水平，一些分析师认为估值“过高”。">**Market Valuations:** US stocks are trading at above-average price-to-earnings multiples, with some analysts considering valuations "excessive."</li>
+            </ul>
+
+            <h3 class="text-lg font-semibold mb-2" data-en="Market Predictions for July 2025:" data-zh="2025年7月市场预测：">Market Predictions for July 2025:</h3>
+            <ul class="list-disc list-inside mb-4">
+                <li data-en="**Continued Volatility:** The market is expected to remain volatile due to shifting dynamics and persistent challenges." data-zh="**持续波动：** 由于动态变化和持续挑战，市场预计将保持波动。">**Continued Volatility:** The market is expected to remain volatile due to shifting dynamics and persistent challenges.</li>
+                <li data-en="**Equities Performance:** While US equities have seen a record streak and the S&P 500 and Nasdaq Composite reached new all-time highs, some analysts express skepticism about the sustainability of double-digit earnings growth." data-zh="**股票表现：** 尽管美国股市创下历史新高，标普500指数和纳斯达克综合指数也创下历史新高，但一些分析师对两位数盈利增长的可持续性表示怀疑。">**Equities Performance:** While US equities have seen a record streak and the S&P 500 and Nasdaq Composite reached new all-time highs, some analysts express skepticism about the sustainability of double-digit earnings growth.</li>
+                <li data-en="**Housing Market Outlook:** Fannie Mae forecasts mortgage rates to end 2025 at 6.4% and anticipates home price growth of 2.8% in 2025. Housing activity is likely to be subdued due to affordability challenges." data-zh="**房地产市场展望：** 房利美预测抵押贷款利率将在2025年底达到6.4%，并预计2025年房价增长2.8%。由于负担能力挑战，房地产活动可能受到抑制。">**Housing Market Outlook:** Fannie Mae forecasts mortgage rates to end 2025 at 6.4% and anticipates home price growth of 2.8% in 2025. Housing activity is likely to be subdued due to affordability challenges.</li>
+            </ul>
+        </section>
+    </main>
+
+    <script>
+        // Language toggle logic
+        const langEnBtn = document.getElementById('lang-en');
+        const langZhBtn = document.getElementById('lang-zh');
+        const elementsToTranslate = document.querySelectorAll('[data-en], [data-zh]');
+
+        function setLanguage(lang) {
+            elementsToTranslate.forEach(el => {
+                if (el.dataset[lang]) {
+                    el.innerHTML = el.dataset[lang];
+                }
+            });
+            if (lang === 'en') {
+                langEnBtn.classList.add('bg-blue-600');
+                langEnBtn.classList.remove('bg-gray-700');
+                langZhBtn.classList.remove('bg-blue-600');
+                langZhBtn.classList.add('bg-gray-700');
+            } else {
+                langZhBtn.classList.add('bg-blue-600');
+                langZhBtn.classList.remove('bg-gray-700');
+                langEnBtn.classList.remove('bg-blue-600');
+                langEnBtn.classList.add('bg-gray-700');
+            }
+        }
+
+        langEnBtn.addEventListener('click', () => setLanguage('en'));
+        langZhBtn.addEventListener('click', () => setLanguage('zh'));
+
+        // Set default language
+        setLanguage('en');
+
+        // Chart 1: Major US Stock Indexes Performance
+        const usIndexesCtx = document.getElementById('usIndexesChart').getContext('2d');
+        new Chart(usIndexesCtx, {
+            type: 'bar',
+            data: {
+                labels: ['S&P 500', 'Dow Jones Industrial Average', 'Nasdaq Composite'],
+                datasets: [{
+                    label: 'Change (%)',
+                    data: [0.01, -0.1, 0.3],
+                    backgroundColor: [
+                        '#3b82f6', // Positive
+                        '#ef4444', // Negative
+                        '#3b82f6'  // Positive
+                    ],
+                    borderColor: [
+                        '#3b82f6',
+                        '#ef4444',
+                        '#3b82f6'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return context.dataset.label + ': ' + context.parsed.x.toFixed(2) + '%';
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            color: '#f8fafc',
+                            callback: function(value) {
+                                return value.toFixed(2) + '%';
+                            }
+                        },
+                        grid: {
+                            color: '#334155'
+                        }
+                    },
+                    y: {
+                        ticks: {
+                            color: '#f8fafc'
+                        },
+                        grid: {
+                            color: '#334155'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Chart 2: Magnificent 7 Stock Performance
+        const mag7Ctx = document.getElementById('mag7Chart').getContext('2d');
+        new Chart(mag7Ctx, {
+            type: 'bar',
+            data: {
+                labels: ['NVIDIA', 'Alphabet (GOOGL)', 'Tesla', 'Microsoft', 'Amazon', 'Meta Platforms', 'Apple'],
+                datasets: [{
+                    label: 'Change (%)',
+                    data: [0.78, 0.42, 3.9, -0.2, 2.49, 0.1, 0.1], // Approximated Meta change
+                    backgroundColor: [
+                        '#3b82f6', '#3b82f6', '#3b82f6', '#ef4444', '#3b82f6', '#3b82f6', '#3b82f6'
+                    ],
+                    borderColor: [
+                        '#3b82f6', '#3b82f6', '#3b82f6', '#ef4444', '#3b82f6', '#3b82f6', '#3b82f6'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return context.dataset.label + ': ' + context.parsed.x.toFixed(2) + '%';
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            color: '#f8fafc',
+                            callback: function(value) {
+                                return value.toFixed(2) + '%';
+                            }
+                        },
+                        grid: {
+                            color: '#334155'
+                        }
+                    },
+                    y: {
+                        ticks: {
+                            color: '#f8fafc'
+                        },
+                        grid: {
+                            color: '#334155'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Chart 3: Top Movers (Gainers/Losers)
+        const topMoversCtx = document.getElementById('topMoversChart').getContext('2d');
+        new Chart(topMoversCtx, {
+            type: 'bar',
+            data: {
+                labels: [
+                    'Super Micro Computer (Gain)', 'Advanced Micro Devices (Gain)', 'Nike (Gain)', 'Tesla (Gain)',
+                    'Albemarle (Loss)', 'Revvity (Loss)', 'Centene (Loss)', 'Nucor (Loss)'
+                ],
+                datasets: [{
+                    label: 'Change (%)',
+                    data: [10.0, 4.3, 3.9, 3.0, -11.0, -8.3, -5.4, -5.5],
+                    backgroundColor: [
+                        '#3b82f6', '#3b82f6', '#3b82f6', '#3b82f6', // Gainers
+                        '#ef4444', '#ef4444', '#ef4444', '#ef4444'  // Losers
+                    ],
+                    borderColor: [
+                        '#3b82f6', '#3b82f6', '#3b82f6', '#3b82f6',
+                        '#ef4444', '#ef4444', '#ef4444', '#ef4444'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return context.dataset.label + ': ' + context.parsed.x.toFixed(2) + '%';
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            color: '#f8fafc',
+                            callback: function(value) {
+                                return value.toFixed(2) + '%';
+                            }
+                        },
+                        grid: {
+                            color: '#334155'
+                        }
+                    },
+                    y: {
+                        ticks: {
+                            color: '#f8fafc'
+                        },
+                        grid: {
+                            color: '#334155'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
