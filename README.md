@@ -19,6 +19,9 @@
   加入日报生成功能: daily/
   提示词：follow the instruct of @report.md to finish the report and webpage gen task
 
+# 2025-7-31日更新：
+  加入instruct_v2.md，修改了机制，可以生成更长的报告内容，但是稳定性会差一些。
+
 # 未解决的bug：
   在Gemini Cli中，如果使用flash模型，需要输入提示词两次：第一次程序读取了指定的文件，然后“自认为”任务完成了，需要再输入一次相同的提示词才可以继续进行工作。
 
