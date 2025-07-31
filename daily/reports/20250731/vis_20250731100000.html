@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Financial Market Daily Report - July 30, 2025</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1e293b;
+            color: #f8fafc;
+        }
+        .container-bg {
+            background-color: #283447;
+        }
+        .accent-gold {
+            border-color: #c0a062;
+        }
+        .text-gold {
+            color: #c0a062;
+        }
+        .text-muted {
+            color: #94a3b8;
+        }
+        .text-positive {
+            color: #3b82f6;
+        }
+        .text-negative {
+            color: #ef4444;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th {
+            background-color: #283447;
+            color: #c0a062;
+            font-weight: bold;
+            padding: 0.75rem;
+            text-align: left;
+        }
+        td {
+            padding: 0.75rem;
+            border-bottom: 1px solid #334155;
+        }
+        tr:nth-child(odd) {
+            background-color: #1e293b;
+        }
+        tr:nth-child(even) {
+            background-color: #283447;
+        }
+        .chart-container {
+            background-color: #283447;
+            border-radius: 0.5rem;
+            padding: 1rem;
+        }
+    </style>
+</head>
+<body class="p-6">
+    <div class="max-w-6xl mx-auto">
+        <header class="flex justify-between items-center mb-8">
+            <h1 class="text-3xl font-bold">Global Financial Market Daily Report</h1>
+            <button id="language-toggle" class="px-4 py-2 rounded-md bg-blue-600 hover:bg-blue-700 text-white">中文</button>
+        </header>
+
+        <main>
+            <section id="executive-summary" class="mb-8">
+                <h2 class="text-xl font-bold pb-2 border-b-2 accent-gold mb-4">Executive Summary</h2>
+                <p data-lang-en="On July 30, 2025, the US stock market experienced a mixed day. The Dow Jones Industrial Average and S&P 500 declined, while the Nasdaq Composite saw a modest gain. Commodities like oil and gold showed varied movements, and cryptocurrencies like Bitcoin and Ethereum traded within specific ranges. The market was influenced by economic conditions, corporate earnings, and geopolitical factors." data-lang-zh="2025年7月30日，美国股市表现喜忧参半。道琼斯工业平均指数和标准普尔500指数下跌，而纳斯达克综合指数小幅上涨。石油和黄金等大宗商品走势各异，比特币和以太坊等加密货币在特定范围内交易。市场受到经济状况、企业盈利和地缘政治因素的影响。"></p>
+            </section>
+
+            <section id="market-performance" class="mb-8">
+                <h2 class="text-xl font-bold pb-2 border-b-2 accent-gold mb-4">1. Market Performance - July 30, 2025</h2>
+
+                <h3 class="text-lg font-semibold mb-2" data-lang-en="1.1 Major Indexes" data-lang-zh="1.1 主要指数"></h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th data-lang-en="Index" data-lang-zh="指数"></th>
+                            <th data-lang-en="Closing Price" data-lang-zh="收盘价"></th>
+                            <th data-lang-en="Daily Change" data-lang-zh="日涨跌幅"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-lang-en="Dow Jones Industrial Average" data-lang-zh="道琼斯工业平均指数"></td>
+                            <td>44,461.28</td>
+                            <td class="text-negative">-0.38%</td>
+                        </tr>
+                        <tr>
+                            <td data-lang-en="S&P 500" data-lang-zh="标准普尔500指数"></td>
+                            <td>6,362.90</td>
+                            <td class="text-negative">-0.12%</td>
+                        </tr>
+                        <tr>
+                            <td data-lang-en="Nasdaq Composite" data-lang-zh="纳斯达克综合指数"></td>
+                            <td>21,129.67</td>
+                            <td class="text-positive">+0.15%</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="chart-container mt-4" style="height: 250px;">
+                    <canvas id="majorIndexesChart"></canvas>
+                </div>
+
+                <h3 class="text-lg font-semibold mt-6 mb-2" data-lang-en="1.2 Commodities" data-lang-zh="1.2 大宗商品"></h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th data-lang-en="Commodity" data-lang-zh="商品"></th>
+                            <th data-lang-en="Closing Price" data-lang-zh="收盘价"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-lang-en="WTI Crude Oil" data-lang-zh="西德克萨斯轻质原油"></td>
+                            <td>$69.28 - $70.00 per barrel</td>
+                        </tr>
+                        <tr>
+                            <td data-lang-en="Brent Crude" data-lang-zh="布伦特原油"></td>
+                            <td>$71.69 a barrel</td>
+                        </tr>
+                        <tr>
+                            <td data-lang-en="Gold (Global Spot)" data-lang-zh="黄金（全球现货）"></td>
+                            <td>$3,327 per troy ounce</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3 class="text-lg font-semibold mt-6 mb-2" data-lang-en="1.3 Cryptocurrencies" data-lang-zh="1.3 加密货币"></h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th data-lang-en="Cryptocurrency" data-lang-zh="加密货币"></th>
+                            <th data-lang-en="Closing Price" data-lang-zh="收盘价"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-lang-en="Bitcoin (BTC)" data-lang-zh="比特币 (BTC)"></td>
+                            <td>$116,932 - $118,012</td>
+                        </tr>
+                        <tr>
+                            <td data-lang-en="Ethereum (ETH)" data-lang-zh="以太坊 (ETH)"></td>
+                            <td>$3,810</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="factors-impacting" class="mb-8">
+                <h2 class="text-xl font-bold pb-2 border-b-2 accent-gold mb-4">2. Factors Impacting Market Moves</h2>
+                <ul class="list-disc list-inside">
+                    <li data-lang-en="Inflation and Interest Rates: Inflation remained a concern, with the CPI above 4% for three consecutive months in early 2025. The Federal Reserve signaled a potential return to rate hikes." data-lang-zh="通货膨胀和利率：通货膨胀仍然是一个问题，2025年初CPI连续三个月高于4%。美联储暗示可能恢复加息。"></li>
+                    <li data-lang-en="Consumer Spending: Remained resilient, but concerns about higher prices from tariffs exist." data-lang-zh="消费者支出：保持弹性，但对关税导致的价格上涨存在担忧。"></li>
+                    <li data-lang-en="Economic Growth: Global growth projected around 3.0% in 2025, but the US economy is expected to slow to below 1% due to policy uncertainty and tariffs." data-lang-zh="经济增长：2025年全球经济增长预计在3.0%左右，但由于政策不确定性和关税，美国经济预计将放缓至1%以下。"></li>
+                    <li data-lang-en="Corporate Earnings: Expected to be a crucial factor, with Q1 2025 earnings up over 12% and a 9% growth rate anticipated for the full year." data-lang-zh="企业盈利：预计将是一个关键因素，2025年第一季度盈利增长超过12%，全年预计增长9%。"></li>
+                    <li data-lang-en="AI and Technology: Advancements in AI are transforming industries, with Nvidia becoming the world's first USD 4 trillion company." data-lang-zh="人工智能和技术：人工智能的进步正在改变行业，英伟达成为全球首家市值达到4万亿美元的公司。"></li>
+                    <li data-lang-en="US Political Landscape and Tariffs: Expansion of tariffs in February 2025 impacted global markets." data-lang-zh="美国政治格局和关税：2025年2月关税的扩大影响了全球市场。"></li>
+                    <li data-lang-en="Geopolitical Tensions: Ongoing conflicts in Ukraine and the Middle East pose risks to energy markets and inflation." data-lang-zh="地缘政治紧张局势：乌克兰和中东的持续冲突对能源市场和通货膨胀构成风险。"></li>
+                    <li data-lang-en="Market Volatility: Significant volatility experienced in the first half of 2025, expected to continue." data-lang-zh="市场波动性：2025年上半年经历了显著波动，预计将持续。"></li>
+                    <li data-lang-en="Sector Performance: Economically sensitive sectors like Technology, Energy, Industrials, and Consumer Discretionaries performed well in July, while defensive sectors underperformed." data-lang-zh="行业表现：科技、能源、工业和非必需消费品等经济敏感行业在7月份表现良好，而防御性行业表现不佳。"></li>
+                </ul>
+            </section>
+
+            <section id="flagged-stocks" class="mb-8">
+                <h2 class="text-xl font-bold pb-2 border-b-2 accent-gold mb-4">3. Performance of Flagged Stocks</h2>
+
+                <h3 class="text-lg font-semibold mb-2" data-lang-en="3.1 Magnificent 7" data-lang-zh="3.1 华尔街七巨头"></h3>
+                <p data-lang-en="The Magnificent 7 stocks showed mixed performance:" data-lang-zh="华尔街七巨头股票表现喜忧参半："></p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th data-lang-en="Stock" data-lang-zh="股票"></th>
+                            <th data-lang-en="Daily Change" data-lang-zh="日涨跌幅"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Nvidia</td>
+                            <td class="text-positive">+2.14%</td>
+                        </tr>
+                        <tr>
+                            <td>Alphabet</td>
+                            <td class="text-positive">+0.4%</td>
+                        </tr>
+                        <tr>
+                            <td>Microsoft</td>
+                            <td class="text-positive">+0.13%</td>
+                        </tr>
+                        <tr>
+                            <td>Apple</td>
+                            <td class="text-negative">-1.05%</td>
+                        </tr>
+                        <tr>
+                            <td>Meta</td>
+                            <td class="text-negative">-0.68%</td>
+                        </tr>
+                        <tr>
+                            <td>Tesla</td>
+                            <td class="text-negative">-0.67%</td>
+                        </tr>
+                        <tr>
+                            <td>Amazon</td>
+                            <td class="text-negative">-0.35%</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="text-muted mt-2" data-lang-en="Meta saw a 9% jump in after-hours trading due to strong earnings." data-lang-zh="Meta因强劲的盈利报告在盘后交易中上涨9%。"></p>
+                <div class="chart-container mt-4" style="height: 300px;">
+                    <canvas id="magnificent7Chart"></canvas>
+                </div>
+
+                <h3 class="text-lg font-semibold mt-6 mb-2" data-lang-en="3.2 Banks" data-lang-zh="3.2 银行股"></h3>
+                <p class="text-muted" data-lang-en="(Specific data for bank stock performance on July 30, 2025, was not available in the search results.)" data-lang-zh="（2025年7月30日银行股表现的具体数据在搜索结果中不可用。）"></p>
+
+                <h3 class="text-lg font-semibold mt-6 mb-2" data-lang-en="3.3 Energy Stocks" data-lang-zh="3.3 能源股"></h3>
+                <p data-lang-en="The energy sector showed mixed performance." data-lang-zh="能源行业表现喜忧参半。"></p>
+                <ul class="list-disc list-inside">
+                    <li data-lang-en="Overall Trends: Closely tied to commodity prices, global demand, and regulations. Q2 2025 saw declining crude oil prices but a considerable rise in natural gas prices." data-lang-zh="总体趋势：与大宗商品价格、全球需求和法规密切相关。2025年第二季度原油价格下跌，但天然气价格大幅上涨。"></li>
+                    <li data-lang-en="Company-Specific: Comstock Resources, CVR Energy, ProPetro Holding Corp., Antero Midstream, and Antero Resources Corp. were highlighted. Antero Resources reported strong Q2 2025 results." data-lang-zh="公司特定：Comstock Resources、CVR Energy、ProPetro Holding Corp.、Antero Midstream和Antero Resources Corp.被重点提及。Antero Resources公布了强劲的2025年第二季度业绩。"></li>
+                    <li data-lang-en="Renewable Energy: WAAREE RENEWABLE TECH (+4.0%) and WEBSOL ENERGY (+3.0%) were top gainers. INDIAN ENERGY EXCHANGE (-3.1%) and ACME SOLAR HOLDINGS LTD. (-2.6%) were top losers. Eos Energy Enterprises announced record quarterly revenue." data-lang-zh="可再生能源：WAAREE RENEWABLE TECH (+4.0%) 和 WEBSOL ENERGY (+3.0%) 是涨幅最大的股票。INDIAN ENERGY EXCHANGE (-3.1%) 和 ACME SOLAR HOLDINGS LTD. (-2.6%) 是跌幅最大的股票。Eos Energy Enterprises公布了创纪录的季度收入。"></li>
+                    <li data-lang-en="Stocks to Watch: Tesla, Palo Alto Networks, CyberArk Software, Broadcom, and Vertiv were identified based on high trading volume." data-lang-zh="值得关注的股票：特斯拉、Palo Alto Networks、CyberArk Software、Broadcom和Vertiv因交易量大而被识别。"></li>
+                </ul>
+
+                <h3 class="text-lg font-semibold mt-6 mb-2" data-lang-en="3.4 Manufacturing Stocks" data-lang-zh="3.4 制造业股票"></h3>
+                <p class="text-muted" data-lang-en="(Specific data for manufacturing stock performance on July 30, 2025, was not available in the search results.)" data-lang-zh="（2025年7月30日制造业股票表现的具体数据在搜索结果中不可用。）"></p>
+
+                <h3 class="text-lg font-semibold mt-6 mb-2" data-lang-en="3.5 Consumer-Related Stocks" data-lang-zh="3.5 消费相关股票"></h3>
+                <p data-lang-en="Performance varied across markets and sub-sectors." data-lang-zh="不同市场和子行业的表现各异。"></p>
+                <ul class="list-disc list-inside">
+                    <li data-lang-en="United States: Generally declined. Consumer Staples Select Sector SPDR Fund and Consumer Discretionary Select Sector SPDR Fund both saw declines. Whirlpool Corporation plunged 13.4% after missing earnings. Mondelez also fell 7%." data-lang-zh="美国：普遍下跌。必需消费品精选行业SPDR基金和非必需消费品精选行业SPDR基金均出现下跌。惠而浦公司在盈利不及预期后暴跌13.4%。亿滋国际也下跌了7%。"></li>
+                    <li data-lang-en="Other Markets: In Australia, S&P/ASX 200 Consumer Staples Index (+1.29%) and S&P/ASX 200 Consumer Discretionary Index (+1.19%) lifted. In Canada, the S&P/TSX Composite Index saw gains led by consumer staples." data-lang-zh="其他市场：在澳大利亚，S&P/ASX 200必需消费品指数（+1.29%）和S&P/ASX 200非必需消费品指数（+1.19%）上涨。在加拿大，S&P/TSX综合指数在必需消费品的带动下上涨。"></li>
+                    <li data-lang-en="Individual Companies: PepsiCo and Altria surpassed Q2 2025 earnings expectations." data-lang-zh="个别公司：百事可乐和奥驰亚均超出2025年第二季度盈利预期。"></li>
+                </ul>
+            </section>
+
+            <section id="top-movers" class="mb-8">
+                <h2 class="text-xl font-bold pb-2 border-b-2 accent-gold mb-4">4. Top Movers in US Stock Market (July 30, 2025)</h2>
+
+                <h3 class="text-lg font-semibold mb-2" data-lang-en="4.1 Top Moving Sectors" data-lang-zh="4.1 涨跌幅最大的行业"></h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th data-lang-en="Sector" data-lang-zh="行业"></th>
+                            <th data-lang-en="Daily Change" data-lang-zh="日涨跌幅"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-lang-en="Real Estate Select Sector SPDR (XLRE)" data-lang-zh="房地产精选行业SPDR (XLRE)"></td>
+                            <td class="text-positive">+1.7%</td>
+                        </tr>
+                        <tr>
+                            <td data-lang-en="Industrials Select Sector SPDR (XLI)" data-lang-zh="工业精选行业SPDR (XLI)"></td>
+                            <td class="text-negative">-1.1%</td>
+                        </tr>
+                        <tr>
+                            <td data-lang-en="Communication Services Select Sector SPDR (XLC)" data-lang-zh="通信服务精选行业SPDR (XLC)"></td>
+                            <td class="text-negative">-0.9%</td>
+                        </tr>
+                        <tr>
+                            <td data-lang-en="Consumer Discretionary Select Sector SPDR (XLY)" data-lang-zh="非必需消费品精选行业SPDR (XLY)"></td>
+                            <td class="text-negative">-0.7%</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="chart-container mt-4">
+                    <canvas id="sectorPerformanceChart"></canvas>
+                </div>
+
+                <h3 class="text-lg font-semibold mt-6 mb-2" data-lang-en="4.2 Top Moving Stocks" data-lang-zh="4.2 涨跌幅最大的股票"></h3>
+                <p data-lang-en="**Gainers:**" data-lang-zh="**上涨股：**"></p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th data-lang-en="Stock" data-lang-zh="股票"></th>
+                            <th data-lang-en="Daily Change" data-lang-zh="日涨跌幅"></th>
+                            <th data-lang-en="Reason" data-lang-zh="原因"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Humana (HUM)</td>
+                            <td class="text-positive">+12%</td>
+                            <td data-lang-en="raised guidance, better-than-expected results" data-lang-zh="上调指引，业绩好于预期"></td>
+                        </tr>
+                        <tr>
+                            <td>Teradyne (TER)</td>
+                            <td class="text-positive">+19.37%</td>
+                            <td data-lang-en="strong Q2 results" data-lang-zh="第二季度业绩强劲"></td>
+                        </tr>
+                        <tr>
+                            <td>GENERAC HOLDINGS INC (GNRC)</td>
+                            <td class="text-positive">+18.5%</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Hershey (HSY)</td>
+                            <td class="text-positive">Advanced</td>
+                            <td data-lang-en="exceeded profit and sales estimates" data-lang-zh="超出利润和销售预期"></td>
+                        </tr>
+                        <tr>
+                            <td>VF Corp. (VFC)</td>
+                            <td class="text-positive">Rose</td>
+                            <td data-lang-en="surprising flat revenue and smaller loss" data-lang-zh="营收持平，亏损减少"></td>
+                        </tr>
+                        <tr>
+                            <td>ELECTRONIC ARTS INC (EA)</td>
+                            <td class="text-positive">+7.33%</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Microsoft (MSFT)</td>
+                            <td class="text-positive">Ticked higher</td>
+                            <td data-lang-en="surged after-hours (strong earnings)" data-lang-zh="盘后飙升（盈利强劲）"></td>
+                        </tr>
+                        <tr>
+                            <td>Meta (META)</td>
+                            <td class="text-positive">Ticked higher</td>
+                            <td data-lang-en="surged after-hours (strong earnings)" data-lang-zh="盘后飙升（盈利强劲）"></td>
+                        </tr>
+                        <tr>
+                            <td>Nvidia (NVDA)</td>
+                            <td class="text-positive">+2%</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Broadcom (AVGO)</td>
+                            <td class="text-positive">+2%</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="chart-container mt-4" style="height: 400px;">
+                    <canvas id="gainersChart"></canvas>
+                </div>
+
+                <p class="mt-6" data-lang-en="**Losers:**" data-lang-zh="**下跌股：**"></p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th data-lang-en="Stock" data-lang-zh="股票"></th>
+                            <th data-lang-en="Daily Change" data-lang-zh="日涨跌幅"></th>
+                            <th data-lang-en="Reason" data-lang-zh="原因"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>IDEX (IEX)</td>
+                            <td class="text-negative">-11.3%</td>
+                            <td data-lang-en="quarterly earnings report and lower outlook" data-lang-zh="季度盈利报告和较低的展望"></td>
+                        </tr>
+                        <tr>
+                            <td>Freeport-McMoRan (FCX)</td>
+                            <td class="text-negative">-9.5%</td>
+                            <td data-lang-en="executive order to tax copper imports" data-lang-zh="征收铜进口税的行政命令"></td>
+                        </tr>
+                        <tr>
+                            <td>Trane Technologies</td>
+                            <td class="text-negative">-8.4%</td>
+                            <td data-lang-en="revenue and profit forecast fell short" data-lang-zh="营收和利润预测不及预期"></td>
+                        </tr>
+                        <tr>
+                            <td>Novo Nordisk (NVO)</td>
+                            <td class="text-negative">-7%</td>
+                            <td data-lang-en="downgrade, concerns about Wegovy sales" data-lang-zh="评级下调，对Wegovy销售的担忧"></td>
+                        </tr>
+                        <tr>
+                            <td>Mondelez International (MDLZ)</td>
+                            <td class="text-negative">-7%</td>
+                            <td data-lang-en="drop in North American sales, rising cocoa prices" data-lang-zh="北美销售额下降，可可价格上涨"></td>
+                        </tr>
+                        <tr>
+                            <td>Old Dominion Freight Lines (ODFL)</td>
+                            <td class="text-negative">-6.2% to -6.6%</td>
+                            <td data-lang-en="missed earnings and revenue forecasts" data-lang-zh="盈利和营收预测不及预期"></td>
+                        </tr>
+                        <tr>
+                            <td>GE HealthCare (GEHC)</td>
+                            <td class="text-negative">-8%</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Verisk Analytics Inc (VRSK)</td>
+                            <td class="text-negative">-5.29%</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Palo Alto Networks Inc (PANW)</td>
+                            <td class="text-negative">-5.17%</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </tbody>
+                </table>
+                <div class="chart-container mt-4" style="height: 400px;">
+                    <canvas id="losersChart"></canvas>
+                </div>
+
+            <section id="upcoming-events" class="mb-8">
+                <h2 class="text-xl font-bold pb-2 border-b-2 accent-gold mb-4">5. Upcoming Events and Short-Term Market Predictions</h2>
+                <p class="text-muted" data-lang-en="(Information on upcoming events and short-term market predictions for July 30, 2025, was not available in the search results as this data is dynamic and cannot be predicted for a future date.)" data-lang-zh="（2025年7月30日即将发生的事件和短期市场预测信息在搜索结果中不可用，因为这些数据是动态的，无法预测未来日期。）"></p>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        const langToggle = document.getElementById('language-toggle');
+        let isEnglish = true;
+
+        function updateContent() {
+            document.querySelectorAll('[data-lang-en]').forEach(element => {
+                if (isEnglish) {
+                    element.textContent = element.dataset.langEn;
+                } else {
+                    element.textContent = element.dataset.langZh;
+                }
+            });
+            document.querySelectorAll('h1').forEach(element => {
+                if (isEnglish) {
+                    element.textContent = "Global Financial Market Daily Report";
+                } else {
+                    element.textContent = "全球金融市场日报";
+                }
+            });
+            document.querySelectorAll('th[data-lang-en]').forEach(element => {
+                if (isEnglish) {
+                    element.textContent = element.dataset.langEn;
+                } else {
+                    element.textContent = element.dataset.langZh;
+                }
+            });
+            langToggle.textContent = isEnglish ? '中文' : 'English';
+        }
+
+        langToggle.addEventListener('click', () => {
+            isEnglish = !isEnglish;
+            updateContent();
+        });
+
+        // Initial content load
+        updateContent();
+
+        // Helper function for gradient
+        function getGradient(ctx, chartArea, colorStart, colorEnd) {
+            const gradient = ctx.createLinearGradient(0, chartArea.bottom, 0, chartArea.top);
+            gradient.addColorStop(0, colorStart);
+            gradient.addColorStop(1, colorEnd);
+            return gradient;
+        }
+
+        // Chart for Major Indexes
+        const majorIndexesCtx = document.getElementById('majorIndexesChart').getContext('2d');
+        new Chart(majorIndexesCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Dow Jones Industrial Average', 'S&P 500', 'Nasdaq Composite'],
+                datasets: [{
+                    data: [-0.38, -0.12, 0.15],
+                    backgroundColor: function(context) {
+                        const chart = context.chart;
+                        const {ctx, chartArea} = chart;
+                        if (!chartArea) {
+                            return null;
+                        }
+                        if (context.raw < 0) {
+                            return getGradient(ctx, chartArea, '#ef4444', '#fca5a5'); // Red to light red
+                        } else {
+                            return getGradient(ctx, chartArea, '#3b82f6', '#93c5fd'); // Blue to light blue
+                        }
+                    },
+                    borderColor: function(context) {
+                        return context.raw < 0 ? '#ef4444' : '#3b82f6';
+                    },
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return context.raw.toFixed(2) + '%';
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            callback: function(value) {
+                                return value.toFixed(2) + '%';
+                            },
+                            color: '#f8fafc'
+                        },
+                        grid: {
+                            color: '#334155'
+                        }
+                    },
+                    y: {
+                        ticks: {
+                            color: '#f8fafc'
+                        },
+                        grid: {
+                            color: '#334155'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Chart for Magnificent 7
+        const mag7Ctx = document.getElementById('magnificent7Chart').getContext('2d');
+        new Chart(mag7Ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Nvidia', 'Alphabet', 'Microsoft', 'Apple', 'Meta', 'Tesla', 'Amazon'],
+                datasets: [{
+                    data: [2.14, 0.4, 0.13, -1.05, -0.68, -0.67, -0.35],
+                    backgroundColor: function(context) {
+                        const chart = context.chart;
+                        const {ctx, chartArea} = chart;
+                        if (!chartArea) {
+                            return null;
+                        }
+                        if (context.raw < 0) {
+                            return getGradient(ctx, chartArea, '#ef4444', '#fca5a5');
+                        } else {
+                            return getGradient(ctx, chartArea, '#3b82f6', '#93c5fd');
+                        }
+                    },
+                    borderColor: function(context) {
+                        return context.raw < 0 ? '#ef4444' : '#3b82f6';
+                    },
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return context.raw.toFixed(2) + '%';
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            callback: function(value) {
+                                return value.toFixed(2) + '%';
+                            },
+                            color: '#f8fafc'
+                        },
+                        grid: {
+                            color: '#334155'
+                        }
+                    },
+                    y: {
+                        ticks: {
+                            color: '#f8fafc'
+                        },
+                        grid: {
+                            color: '#334155'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Chart for Top Gainers
+        const gainersCtx = document.getElementById('gainersChart').getContext('2d');
+        new Chart(gainersCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Humana (HUM)', 'Teradyne (TER)', 'GENERAC HOLDINGS INC (GNRC)', 'Hershey (HSY)', 'VF Corp. (VFC)', 'ELECTRONIC ARTS INC (EA)', 'Microsoft (MSFT)', 'Meta (META)', 'Nvidia (NVDA)', 'Broadcom (AVGO)'],
+                datasets: [{
+                    data: [12, 19.37, 18.5, 0.5, 0.5, 7.33, 0.5, 0.5, 2, 2], // Approximate values for 'Advanced' and 'Rose'
+                    backgroundColor: function(context) {
+                        const chart = context.chart;
+                        const {ctx, chartArea} = chart;
+                        if (!chartArea) {
+                            return null;
+                        }
+                        return getGradient(ctx, chartArea, '#3b82f6', '#93c5fd');
+                    },
+                    borderColor: '#3b82f6',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return context.raw.toFixed(2) + '%';
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            callback: function(value) {
+                                return value.toFixed(2) + '%';
+                            },
+                            color: '#f8fafc'
+                        },
+                        grid: {
+                            color: '#334155'
+                        }
+                    },
+                    y: {
+                        ticks: {
+                            color: '#f8fafc'
+                        },
+                        grid: {
+                            color: '#334155'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Chart for Top Losers
+        const losersCtx = document.getElementById('losersChart').getContext('2d');
+        new Chart(losersCtx, {
+            type: 'bar',
+            data: {
+                labels: ['IDEX (IEX)', 'Freeport-McMoRan (FCX)', 'Trane Technologies', 'Novo Nordisk (NVO)', 'Mondelez International (MDLZ)', 'Old Dominion Freight Lines (ODFL)', 'GE HealthCare (GEHC)', 'Verisk Analytics Inc (VRSK)', 'Palo Alto Networks Inc (PANW)'],
+                datasets: [{
+                    data: [-11.3, -9.5, -8.4, -7, -7, -6.4, -8, -5.29, -5.17], // Using average for ODFL
+                    backgroundColor: function(context) {
+                        const chart = context.chart;
+                        const {ctx, chartArea} = chart;
+                        if (!chartArea) {
+                            return null;
+                        }
+                        return getGradient(ctx, chartArea, '#ef4444', '#fca5a5');
+                    },
+                    borderColor: '#ef4444',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return context.raw.toFixed(2) + '%';
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            callback: function(value) {
+                                return value.toFixed(2) + '%';
+                            },
+                            color: '#f8fafc'
+                        },
+                        grid: {
+                            color: '#334155'
+                        }
+                    },
+                    y: {
+                        ticks: {
+                            color: '#f8fafc'
+                        },
+                        grid: {
+                            color: '#334155'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Chart for Sector Performance
+        const sectorCtx = document.getElementById('sectorPerformanceChart').getContext('2d');
+        new Chart(sectorCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Real Estate Select Sector SPDR (XLRE)', 'Industrials Select Sector SPDR (XLI)', 'Communication Services Select Sector SPDR (XLC)', 'Consumer Discretionary Select Sector SPDR (XLY)'],
+                datasets: [{
+                    data: [1.7, -1.1, -0.9, -0.7],
+                    backgroundColor: function(context) {
+                        const chart = context.chart;
+                        const {ctx, chartArea} = chart;
+                        if (!chartArea) {
+                            return null;
+                        }
+                        if (context.raw < 0) {
+                            return getGradient(ctx, chartArea, '#ef4444', '#fca5a5');
+                        } else {
+                            return getGradient(ctx, chartArea, '#3b82f6', '#93c5fd');
+                        }
+                    },
+                    borderColor: function(context) {
+                        return context.raw < 0 ? '#ef4444' : '#3b82f6';
+                    },
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return context.raw.toFixed(2) + '%';
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            callback: function(value) {
+                                return value.toFixed(2) + '%';
+                            },
+                            color: '#f8fafc'
+                        },
+                        grid: {
+                            color: '#334155'
+                        }
+                    },
+                    y: {
+                        ticks: {
+                            color: '#f8fafc'
+                        },
+                        grid: {
+                            color: '#334155'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Financial Market Daily Report</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            background-color: #1e293b;
+            color: #f8fafc;
+            font-family: 'Inter', sans-serif;
+        }
+        .lang-toggle {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="lang-toggle">
+        <button id="lang-en" class="px-3 py-1 text-white bg-slate-700 rounded-md">EN</button>
+        <button id="lang-zh" class="px-3 py-1 text-white bg-slate-500 rounded-md">ZH</button>
+    </div>
+
+    <div class="container mx-auto p-4">
+        <h1 class="text-3xl font-bold border-b-2 border-amber-400 pb-2" data-lang-key="title">Global Financial Market Daily Report - 2025-07-30</h1>
+
+        <section class="mt-6">
+            <h2 class="text-xl font-bold border-b-2 border-amber-400 pb-2" data-lang-key="market_summary">Market Summary</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+                <div class="bg-slate-800 p-4 rounded-lg">
+                    <h3 class="text-lg font-semibold" data-lang-key="major_indexes">Major Indexes</h3>
+                    <table class="w-full mt-2">
+                        <thead>
+                            <tr class="text-amber-400">
+                                <th class="text-left" data-lang-key="index">Index</th>
+                                <th class="text-right" data-lang-key="closing_price">Closing Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Dow Jones</td>
+                                <td class="text-right">44,632.99</td>
+                            </tr>
+                            <tr>
+                                <td>S&P 500</td>
+                                <td class="text-right">6,370.86</td>
+                            </tr>
+                            <tr>
+                                <td>Nasdaq</td>
+                                <td class="text-right">21,098.29</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="bg-slate-800 p-4 rounded-lg">
+                    <h3 class="text-lg font-semibold" data-lang-key="commodities">Commodities</h3>
+                    <table class="w-full mt-2">
+                        <thead>
+                            <tr class="text-amber-400">
+                                <th class="text-left" data-lang-key="commodity">Commodity</th>
+                                <th class="text-right" data-lang-key="closing_price">Closing Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Gold</td>
+                                <td class="text-right">$3,327.20/ounce</td>
+                            </tr>
+                            <tr>
+                                <td>WTI Crude Oil</td>
+                                <td class="text-right">$69.21/barrel</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="bg-slate-800 p-4 rounded-lg">
+                    <h3 class="text-lg font-semibold" data-lang-key="cryptocurrencies">Cryptocurrencies</h3>
+                    <table class="w-full mt-2">
+                        <thead>
+                            <tr class="text-amber-400">
+                                <th class="text-left" data-lang-key="cryptocurrency">Cryptocurrency</th>
+                                <th class="text-right" data-lang-key="closing_price">Closing Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Bitcoin</td>
+                                <td class="text-right">$117,496.30</td>
+                            </tr>
+                            <tr>
+                                <td>Ethereum</td>
+                                <td class="text-right">$3,760.00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section class="mt-6">
+            <h2 class="text-xl font-bold border-b-2 border-amber-400 pb-2" data-lang-key="key_market_drivers">Key Market Drivers</h2>
+            <ul class="list-disc list-inside mt-4 space-y-2">
+                <li data-lang-key="federal_reserve_watch"></li>
+                <li data-lang-key="economic_data"></li>
+                <li data-lang-key="corporate_earnings"></li>
+                <li data-lang-key="geopolitical_landscape"></li>
+            </ul>
+        </section>
+
+        <section class="mt-6">
+            <h2 class="text-xl font-bold border-b-2 border-amber-400 pb-2" data-lang-key="sector_stock_performance">Sector & Stock Performance</h2>
+            <div class="mt-4 bg-slate-800 p-4 rounded-lg">
+                <canvas id="topMoversChart"></canvas>
+            </div>
+        </section>
+
+        <section class="mt-6">
+            <h2 class="text-xl font-bold border-b-2 border-amber-400 pb-2" data-lang-key="upcoming_events">Upcoming Events</h2>
+            <ul class="list-disc list-inside mt-4 space-y-2">
+                <li data-lang-key="fomc_meeting"></li>
+                <li data-lang-key="economic_data_upcoming"></li>
+                <li data-lang-key="corporate_earnings_upcoming"></li>
+                <li data-lang-key="geopolitical_events_upcoming"></li>
+            </ul>
+        </section>
+
+        <section class="mt-6">
+            <h2 class="text-xl font-bold border-b-2 border-amber-400 pb-2" data-lang-key="short_term_outlook">Short-Term Outlook & Prediction</h2>
+            <p class="mt-4" data-lang-key="outlook_prediction"></p>
+        </section>
+    </div>
+
+    <script>
+        const translations = {
+            en: {
+                title: "Global Financial Market Daily Report - 2025-07-30",
+                market_summary: "Market Summary",
+                major_indexes: "Major Indexes",
+                index: "Index",
+                closing_price: "Closing Price",
+                commodities: "Commodities",
+                commodity: "Commodity",
+                cryptocurrencies: "Cryptocurrencies",
+                cryptocurrency: "Cryptocurrency",
+                key_market_drivers: "Key Market Drivers",
+                federal_reserve_watch: "<strong>Federal Reserve Watch:</strong> Investors are keenly awaiting the outcome of the Federal Open Market Committee (FOMC) meeting on July 30th. While no rate cut is expected, commentary from Fed Chair Jerome Powell will be closely analyzed for future monetary policy direction.",
+                economic_data: "<strong>Economic Data:</strong> Key economic indicators are in focus, including US unemployment claims, home sales, and manufacturing/services PMI. In Europe, the ECB interest rate decision and German business climate index are also being watched.",
+                corporate_earnings: "<strong>Corporate Earnings:</strong> A heavy week of corporate earnings reports is a major market driver, with companies like Merck, Procter & Gamble, and Visa releasing their results.",
+                geopolitical_landscape: "<strong>Geopolitical Landscape:</strong> Ongoing trade negotiations between the US and other major economies, particularly China, continue to create uncertainty.",
+                sector_stock_performance: "Sector & Stock Performance",
+                upcoming_events: "Upcoming Events",
+                fomc_meeting: "<strong>FOMC Meeting:</strong> The Federal Open Market Committee (FOMC) meeting on July 29-30 is the most anticipated event. While no rate change is expected, the Fed's commentary on future policy will be critical.",
+                economic_data_upcoming: "<strong>Economic Data:</strong> Key economic data releases to watch include US CPI and PPI, employment data, and retail sales. Eurozone GDP and inflation figures are also due.",
+                corporate_earnings_upcoming: "<strong>Corporate Earnings:</strong> The Q2 earnings season continues, with reports from major tech companies being of particular interest.",
+                geopolitical_events_upcoming: "<strong>Geopolitical Events:</strong> The BRICS summit in Brazil and the Shanghai Cooperation Organization summit in China could introduce market uncertainty.",
+                short_term_outlook: "Short-Term Outlook & Prediction",
+                outlook_prediction: "The short-term outlook for the market is cautiously optimistic, with the recent rally to all-time highs providing positive momentum. However, significant volatility is expected around the FOMC meeting announcement on July 30th. The market's direction will heavily depend on the Fed's tone and forward guidance. A dovish stance could fuel further gains, while a hawkish tone could trigger a pullback. The release of US GDP data will also be a major factor. Overall, we predict a volatile session on July 30th, with a slight upward bias if the Fed's announcement is perceived as dovish.",
+            },
+            zh: {
+                title: "全球金融市场每日报告 - 2025-07-30",
+                market_summary: "市场摘要",
+                major_indexes: "主要指数",
+                index: "指数",
+                closing_price: "收盘价",
+                commodities: "大宗商品",
+                commodity: "商品",
+                cryptocurrencies: "加密货币",
+                cryptocurrency: "加密货币",
+                key_market_drivers: "主要市场驱动因素",
+                federal_reserve_watch: "<strong>美联储观察:</strong> 投资者正热切期待7月30日联邦公开市场委员会(FOMC)会议的结果。虽然预计不会降息，但美联储主席杰罗姆·鲍威尔的讲话将受到密切关注，以寻找未来货币政策方向的线索。",
+                economic_data: "<strong>经济数据:</strong> 主要经济指标备受关注，包括美国失业救济申请、房屋销售和制造业/服务业采购经理人指数。在欧洲，欧洲央行的利率决定和德国商业景气指数也备受关注。",
+                corporate_earnings: "<strong>公司财报:</strong> 本周大量公司将发布财报，这是市场的主要驱动力，默克、宝洁和Visa等公司都将公布业绩。",
+                geopolitical_landscape: "<strong>地缘政治格局:</strong> 美国与其他主要经济体，特别是中国之间正在进行的贸易谈判继续制造不确定性。",
+                sector_stock_performance: "板块与股票表现",
+                upcoming_events: "即将发生的事件",
+                fomc_meeting: "<strong>FOMC会议:</strong> 7月29-30日的联邦公开市场委员会(FOMC)会议是最受期待的事件。虽然预计利率不会有变化，但美联储对未来政策的评论将至关重要。",
+                economic_data_upcoming: "<strong>经济数据:</strong> 需要关注的主要经济数据发布包括美国CPI和PPI、就业数据和零售销售。欧元区GDP和通胀数据也将公布。",
+                corporate_earnings_upcoming: "<strong>公司财报:</strong> 第二季度财报季仍在继续，主要科技公司的财报尤其引人关注。",
+                geopolitical_events_upcoming: "<strong>地缘政治事件:</strong> 在巴西举行的金砖国家峰会和在中国举行的上海合作组织峰会可能会给市场带来不确定性。",
+                short_term_outlook: "短期展望与预测",
+                outlook_prediction: "短期市场前景谨慎乐观，最近创下历史新高为市场提供了积极的动力。然而，预计7月30日FOMC会议声明发布前后将出现剧烈波动。市场的走向将在很大程度上取决于美联储的基调和前瞻性指引。鸽派立场可能会推动市场进一步上涨，而鹰派立场可能会引发回调。美国GDP数据的发布也将是一个主要因素。总的来说，我们预测7月30日的交易将是动荡的，如果美联储的声明被认为是鸽派的，则略有上行倾向。",
+            }
+        };
+
+        const switchLang = (lang) => {
+            document.querySelectorAll('[data-lang-key]').forEach(el => {
+                const key = el.dataset.langKey;
+                el.innerHTML = translations[lang][key];
+            });
+        };
+
+        document.getElementById('lang-en').addEventListener('click', () => switchLang('en'));
+        document.getElementById('lang-zh').addEventListener('click', () => switchLang('zh'));
+
+        // Set initial language
+        switchLang('en');
+
+        const topMoversData = {
+            labels: ['Recon Technology', 'ScanTech AI Systems', 'Salarius Pharmaceuticals', 'Wang & Lee Group', 'Sharps Technology', 'Leslie\'s Inc'],
+            datasets: [{
+                label: '% Change',
+                data: [82.03, 73.44, 71.62, -35.70, -33.33, -31.97],
+                backgroundColor: [
+                    '#3b82f6',
+                    '#3b82f6',
+                    '#3b82f6',
+                    '#ef4444',
+                    '#ef4444',
+                    '#ef4444'
+                ]
+            }]
+        };
+
+        const topMoversConfig = {
+            type: 'bar',
+            data: topMoversData,
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        ticks: {
+                            color: '#f8fafc'
+                        },
+                        grid: {
+                            color: '#334155'
+                        }
+                    },
+                    y: {
+                        ticks: {
+                            color: '#f8fafc'
+                        },
+                        grid: {
+                            color: '#334155'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        };
+
+        new Chart(
+            document.getElementById('topMoversChart'),
+            topMoversConfig
+        );
+    </script>
+</body>
+</html>

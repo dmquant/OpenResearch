@@ -1,0 +1,10 @@
+- [x] Identify the latest earnings call date.
+- [x] Search for official earnings release and transcript.
+- [x] Download/Access relevant documents (Earnings press release, Earnings call transcript, Investor presentation, 10-Q or 10-K filing).
+- [x] Extract and analyze Key Financial Metrics (Revenue, Net Income & EPS, Gross Margin, Operating Income, Net Margin, Cash Flow).
+- [x] Perform Segment Performance Deep Dive (Productivity and Business Processes, Intelligent Cloud, More Personal Computing).
+- [x] Identify Growth Drivers and Challenges.
+- [x] Analyze Management Commentary and Future Outlook (Guidance, Strategic Priorities, Macroeconomic Impact).
+- [x] Search for Analyst Reactions and Market Response.
+- [x] Compose the report in markdown format (report_microsoft_earnings_call_20250731.md).
+- [x] Craft a bilingual webpage (vis_microsoft_earnings_call_20250731.html) based on the report and `vis.md` instructions.

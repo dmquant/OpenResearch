@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microsoft FY25 Q4 Earnings Report</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1e293b; /* slate blue */
+            color: #f8fafc; /* off-white */
+        }
+        .container-bg {
+            background-color: #283447; /* slightly lighter slate blue */
+        }
+        .accent-gold {
+            color: #c0a062;
+        }
+        .border-gold {
+            border-color: #c0a062;
+        }
+        .text-blue {
+            color: #3b82f6;
+        }
+        .text-red {
+            color: #ef4444;
+        }
+        .muted-text {
+            color: #94a3b8;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th {
+            background-color: #283447;
+            color: #c0a062;
+            padding: 12px;
+            text-align: left;
+        }
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #334155;
+        }
+        tr:nth-child(odd) {
+            background-color: #1e293b;
+        }
+        tr:nth-child(even) {
+            background-color: #283447;
+        }
+        .chart-container {
+            background-color: #283447;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            height: 400px; /* Fixed height to prevent unstoppable extending */
+        }
+    </style>
+</head>
+<body class="p-8">
+    <header class="text-center mb-12">
+        <h1 class="text-3xl font-bold accent-gold mb-2">Microsoft FY25 Q4 Earnings Report</h1>
+        <h1 class="text-3xl font-bold accent-gold mb-4">微软2025财年第四季度财报</h1>
+        <p class="muted-text">Date: July 31, 2025</p>
+        <p class="muted-text">日期：2025年7月31日</p>
+    </header>
+
+    <main class="max-w-4xl mx-auto">
+        <section class="mb-8">
+            <h2 class="text-xl font-bold pb-2 mb-4 border-b-2 border-gold">Executive Summary</h2>
+            <h2 class="text-xl font-bold pb-2 mb-4 border-b-2 border-gold">执行摘要</h2>
+            <p class="mb-4">Microsoft reported strong financial results for its fiscal year 2025 fourth quarter, ending June 30, 2025. The company exceeded analyst expectations across key metrics, driven primarily by robust growth in its Intelligent Cloud segment, particularly Azure, and significant advancements in AI. Total revenue reached $76.4 billion, an 18% year-over-year increase, with diluted earnings per share (EPS) at $3.65, up 24%. The company's AI business has surpassed a $15 billion annual revenue run rate, highlighting its successful integration and monetization of artificial intelligence capabilities.</p>
+            <p class="mb-4">微软公布了截至2025年6月30日的2025财年第四季度强劲财务业绩。公司在关键指标上超出了分析师预期，这主要得益于其智能云部门（尤其是Azure）的强劲增长以及人工智能领域的重大进展。总收入达到764亿美元，同比增长18%，摊薄后每股收益（EPS）为3.65美元，增长24%。公司的人工智能业务年化收入已超过150亿美元，这突显了其成功整合和货币化人工智能能力。</p>
+        </section>
+
+        <section class="mb-8">
+            <h2 class="text-xl font-bold pb-2 mb-4 border-b-2 border-gold">Financial Performance Overview</h2>
+            <h2 class="text-xl font-bold pb-2 mb-4 border-b-2 border-gold">财务业绩概览</h2>
+            <p class="mb-4">Microsoft's Q4 FY25 performance demonstrates continued strength across its business segments.</p>
+            <p class="mb-4">微软2025财年第四季度的业绩显示其各业务部门持续强劲。</p>
+            <div class="overflow-x-auto mb-4">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Metric / 指标</th>
+                            <th>Q4 FY25 (Billions USD) / 25财年第四季度（十亿美元）</th>
+                            <th>Year-over-Year Change / 同比变化</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Total Revenue / 总收入</td>
+                            <td>$76.4</td>
+                            <td class="text-blue">+18%</td>
+                        </tr>
+                        <tr>
+                            <td>Operating Income / 运营收入</td>
+                            <td>$34.3</td>
+                            <td class="text-blue">+23%</td>
+                        </tr>
+                        <tr>
+                            <td>Net Income / 净收入</td>
+                            <td>$27.2</td>
+                            <td class="text-blue">+24%</td>
+                        </tr>
+                        <tr>
+                            <td>Diluted EPS / 摊薄每股收益</td>
+                            <td>$3.65</td>
+                            <td class="text-blue">+24%</td>
+                        </tr>
+                        <tr>
+                            <td>Gross Margin % / 毛利率 %</td>
+                            <td>68%</td>
+                            <td class="text-red">-1 point</td>
+                        </tr>
+                        <tr>
+                            <td>Capital Expenditures / 资本支出</td>
+                            <td>$24.2</td>
+                            <td class="text-blue">+27%</td>
+                        </tr>
+                        <tr>
+                            <td>Cash Flow from Operations / 运营现金流</td>
+                            <td>$42.6</td>
+                            <td class="text-blue">+15%</td>
+                        </tr>
+                        <tr>
+                            <td>Free Cash Flow / 自由现金流</td>
+                            <td>$25.6</td>
+                            <td class="text-blue">+10%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="muted-text">*Note: Gross Margin % saw a slight decrease due to increased costs associated with scaling AI infrastructure.*</p>
+            <p class="muted-text">*注：毛利率略有下降，原因是与扩展人工智能基础设施相关的成本增加。*</p>
+        </section>
+
+        <section class="mb-8">
+            <h2 class="text-xl font-bold pb-2 mb-4 border-b-2 border-gold">Segmental Analysis</h2>
+            <h2 class="text-xl font-bold pb-2 mb-4 border-b-2 border-gold">分部分析</h2>
+
+            <h3 class="text-lg font-semibold mb-2">Intelligent Cloud / 智能云</h3>
+            <p class="mb-2">The Intelligent Cloud segment continues to be a primary growth engine for Microsoft.</p>
+            <p class="mb-2">智能云部门仍然是微软的主要增长引擎。</p>
+            <ul class="list-disc list-inside mb-4">
+                <li>Revenue / 收入: $29.9 billion (+26% YoY) / 299亿美元（同比增长26%）</li>
+                <li>Azure and other cloud services revenue growth / Azure及其他云服务收入增长: +39% YoY / 同比增长39%</li>
+                <li>Microsoft Cloud revenue (including Azure, Microsoft 365, Dynamics 365, LinkedIn commercial services) / 微软云收入（包括Azure、Microsoft 365、Dynamics 365、LinkedIn商业服务）: $46.7 billion (+27% YoY) / 467亿美元（同比增长27%）</li>
+            </ul>
+            <p class="mb-4">This segment's strong performance is largely attributed to the accelerated adoption of Azure services and the increasing demand for cloud solutions, particularly those integrating AI capabilities.</p>
+            <p class="mb-4">该部门的强劲表现主要归因于Azure服务的加速采用以及对云解决方案（特别是那些集成人工智能能力的解决方案）不断增长的需求。</p>
+
+            <h3 class="text-lg font-semibold mb-2">Productivity and Business Processes / 生产力和业务流程</h3>
+            <p class="mb-2">This segment showed solid growth, driven by strong performance in Microsoft 365 and LinkedIn.</p>
+            <p class="mb-2">该部门表现出稳健增长，主要得益于Microsoft 365和LinkedIn的强劲表现。</p>
+            <ul class="list-disc list-inside mb-4">
+                <li>Revenue / 收入: $33.1 billion (+16% YoY) / 331亿美元（同比增长16%）</li>
+                <li>Microsoft 365 Commercial products and cloud services revenue growth / Microsoft 365商业产品和云服务收入增长: +16% YoY / 同比增长16%</li>
+                <li>Microsoft 365 Consumer subscribers / Microsoft 365消费者订阅用户: 89 million / 8900万</li>
+                <li>LinkedIn Revenue growth / LinkedIn收入增长: +9% YoY / 同比增长9%</li>
+                <li>Dynamics products and cloud services revenue growth / Dynamics产品和云服务收入增长: +18% YoY / 同比增长18%</li>
+            </ul>
+            <p class="mb-4">The continued shift to cloud-based productivity solutions and the robust performance of LinkedIn contributed significantly to this segment's results.</p>
+            <p class="mb-4">持续向基于云的生产力解决方案的转变以及LinkedIn的强劲表现对该部门的业绩做出了重大贡献。</p>
+
+            <h3 class="text-lg font-semibold mb-2">More Personal Computing / 更多个人计算</h3>
+            <p class="mb-2">This segment also contributed positively to the overall revenue.</p>
+            <p class="mb-2">该部门也对总收入做出了积极贡献。</p>
+            <ul class="list-disc list-inside mb-4">
+                <li>Revenue / 收入: $13.5 billion (+9% YoY) / 135亿美元（同比增长9%）</li>
+                <li>Windows OEM and Devices revenue growth / Windows OEM和设备收入增长: +3% YoY / 同比增长3%</li>
+                <li>Xbox content and services revenue growth / Xbox内容和服务收入增长: +13% YoY / 同比增长13%</li>
+                <li>Search and news advertising revenue (excluding traffic acquisition costs) growth / 搜索和新闻广告收入（不含流量获取成本）增长: +21% YoY / 同比增长21%</li>
+            </ul>
+            <p class="mb-4">While the PC market has faced some headwinds, the growth in Xbox content and services, along with advertising revenue, helped drive this segment's performance.</p>
+            <p class="mb-4">尽管PC市场面临一些不利因素，但Xbox内容和服务的增长以及广告收入帮助推动了该部门的业绩。</p>
+        </section>
+
+        <section class="mb-8">
+            <h2 class="text-xl font-bold pb-2 mb-4 border-b-2 border-gold">Key Growth Drivers and Strategic Initiatives</h2>
+            <h2 class="text-xl font-bold pb-2 mb-4 border-b-2 border-gold">主要增长动力和战略举措</h2>
+            <p class="mb-4">Microsoft's impressive Q4 FY25 results are largely attributable to its strategic focus on:</p>
+            <p class="mb-4">微软2025财年第四季度令人印象深刻的业绩主要归因于其战略重点：</p>
+            <ul class="list-disc list-inside mb-4">
+                <li>**Artificial Intelligence (AI) / 人工智能 (AI):** The company's AI business has achieved a significant milestone, surpassing a $15 billion annual revenue run rate, representing a 150% year-over-year increase. This highlights the successful integration of AI across its product portfolio, from Azure AI services to Copilot in Microsoft 365.</li>
+                <li>**人工智能 (AI):** 公司的人工智能业务取得了重要里程碑，年化收入已超过150亿美元，同比增长150%。这突显了人工智能在其产品组合中的成功整合，从Azure AI服务到Microsoft 365中的Copilot。</li>
+                <li>**Cloud Computing (Azure) / 云计算 (Azure):** Continued strong demand for Azure's infrastructure and platform services remains a core growth driver. Microsoft's ongoing investments in cloud infrastructure, as reflected in increased capital expenditures, underscore its commitment to meeting this demand and expanding its cloud capabilities.</li>
+                <li>**云计算 (Azure):** 对Azure基础设施和平台服务的持续强劲需求仍然是核心增长动力。微软对云基础设施的持续投资，体现在资本支出的增加上，突显了其满足这一需求和扩展其云能力的承诺。</li>
+                <li>**Hybrid Work Solutions / 混合工作解决方案:** The sustained adoption of Microsoft 365 and Teams continues to support productivity and collaboration in hybrid work environments.</li>
+                <li>**混合工作解决方案:** Microsoft 365和Teams的持续采用继续支持混合工作环境中的生产力和协作。</li>
+            </ul>
+        </section>
+
+        <section class="mb-8">
+            <h2 class="text-xl font-bold pb-2 mb-4 border-b-2 border-gold">Outlook and Guidance</h2>
+            <h2 class="text-xl font-bold pb-2 mb-4 border-b-2 border-gold">展望与指引</h2>
+            <p class="mb-4">While specific forward-looking guidance for the next quarter was not detailed in the provided summaries, Microsoft's management emphasized continued investment in cloud infrastructure and AI capabilities. The strong performance across all segments, particularly in Intelligent Cloud and AI, suggests a positive outlook for the upcoming fiscal year.</p>
+            <p class="mb-4">虽然所提供的摘要中没有详细说明下一季度的具体前瞻性指引，但微软管理层强调将继续投资于云基础设施和人工智能能力。所有部门的强劲表现，特别是在智能云和人工智能领域，预示着即将到来的财年将有积极的展望。</p>
+        </section>
+
+        <section class="mb-8">
+            <h2 class="text-xl font-bold pb-2 mb-4 border-b-2 border-gold">Analyst and Market Reaction</h2>
+            <h2 class="text-xl font-bold pb-2 mb-4 border-b-2 border-gold">分析师和市场反应</h2>
+            <p class="mb-4">Following the earnings announcement, Microsoft's stock rose, trading near its 52-week high. Analysts generally reacted positively, acknowledging the company's strong execution, particularly in its cloud and AI initiatives, which are seen as key drivers for future growth.</p>
+            <p class="mb-4">财报公布后，微软股价上涨，交易价格接近52周高点。分析师普遍反应积极，认可公司在云和人工智能方面的强劲执行力，这些被视为未来增长的关键驱动力。</p>
+        </section>
+
+        <section class="mb-8">
+            <h2 class="text-xl font-bold pb-2 mb-4 border-b-2 border-gold">Conclusion</h2>
+            <h2 class="text-xl font-bold pb-2 mb-4 border-b-2 border-gold">结论</h2>
+            <p class="mb-4">Microsoft's Fiscal Year 2025 Fourth Quarter earnings demonstrate the company's resilience and strategic success in a dynamic technological landscape. The significant growth in its cloud and AI businesses positions Microsoft favorably for continued expansion and market leadership. The company's commitment to innovation and investment in cutting-edge technologies like AI is clearly yielding substantial returns.</p>
+            <p class="mb-4">微软2025财年第四季度的财报显示了公司在动态技术环境中的韧性和战略成功。其云和人工智能业务的显著增长使微软在持续扩张和市场领导地位方面处于有利地位。公司对创新和人工智能等尖端技术的投入显然正在带来可观的回报。</p>
+        </section>
+
+        <section class="mb-8">
+            <h2 class="text-xl font-bold pb-2 mb-4 border-b-2 border-gold">Appendix</h2>
+            <h2 class="text-xl font-bold pb-2 mb-4 border-b-2 border-gold">附录</h2>
+            <h3 class="text-lg font-semibold mb-2">Sources / 来源:</h3>
+            <ul class="list-disc list-inside mb-4">
+                <li><a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEPAiDEYSUCKJSoMgc_Oq0QAfVi7b3MMpuPpTJ-G7Iisq93twSXz5Zqu99GmYdAb9C13z5gbMs14aHgBXbqxhK2f8atZPkm6t4LloPlCqXuJCjpTzU98W5-04Xn2NgpQ-kNR0-I_nIpfQTaYs9ZmmLR0k3WbLsq2iQu8RA4FohxkpREaUJvY27zQes1IXy6CUo_hx7g6ltxFlId5NFsEQt9tJB6u9HTOkG8=" class="text-blue hover:underline" target="_blank">Microsoft FY25 Q4 Earnings Call Summary - Finextra</a></li>
+                <li><a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGSYFPOKUbVEJeN3k8Hp7nF7JgLCZl5jS7diDzlNiPa8sRUAFFc1V87rFZZKRlj9DsgXwUcADp5SIHBdJYe_Wmk3gm1R0VKuEojF8Ep5_wGkho7t2Hgyrwfj8hy4dFOEF_KpYmtTlLi1RU_EG7mKnhlTE-etAJADrKW0x2lUdVA3erTamxUZXAsNvorZVihaNJyX8DfZizG7JGxFEMFaHcG1U5VJDD5Oc9CvJpGXwuZP6A=" class="text-blue hover:underline" target="_blank">Microsoft FY25 Q4 Earnings Highlights - StockTitan</a></li>
+                <li><a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFNVm-p3S313u7vFE7SMWetSZ2LRVeNkJYcROF1R5_fQOdaibuK8DaoWvb6GlyE666-VAHwTRcjjBzXn0wIMwvj4e-IzTEofzD0w4YSLqQf6OmfbmeP8HRDNVHexMCO68mmy01bGGrm1BhK00WocwWhMQojP6tNPzhAYaEMEVb0UpniVO9o7f0kxBfLUFK2fQWQJbTbB0IrxrV5ClP1McOJVqmaAXXZT6f0e4-37lfZpAGyK0oZjLN0rrh1ljXOiZT7s5AAQ-O0nXeqmZg=" class="text-blue hover:underline" target="_blank">Microsoft Q4 FY25 Earnings Report - Investing.com</a></li>
+                <li><a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGCmpDv2ftacju0SomjivnTW50xU0pP7ofQGG5i_iGAvYL8bXm1hKBiec9bJwVLr5C9Sb4H7DSTnkRDUJTbtyytOGQXxG9YjrGrKuPzp9zPqhXlgTaaKsCWH3TyUJTIQLq0xAqulYGIpquxL7ncE4Q2lOLcWT5Kh2Msx417-gne2JLpFvKfRvE=" class="text-blue hover:underline" target="_blank">Microsoft FY25 Q4 Earnings Analysis - TechPowerUp</a></li>
+            </ul>
+        </section>
+
+        <section class="mb-8">
+            <h2 class="text-xl font-bold pb-2 mb-4 border-b-2 border-gold">Visualizations</h2>
+            <h2 class="text-xl font-bold pb-2 mb-4 border-b-2 border-gold">可视化</h2>
+
+            <div class="chart-container mb-8">
+                <h3 class="text-lg font-semibold mb-4">Revenue by Segment (Q4 FY25) / 各部门收入（25财年第四季度）</h3>
+                <canvas id="revenueBySegmentChart"></canvas>
+            </div>
+
+            <div class="chart-container mb-8">
+                <h3 class="text-lg font-semibold mb-4">Year-over-Year Change in Key Metrics / 关键指标同比变化</h3>
+                <canvas id="yoyChangeChart"></canvas>
+            </div>
+
+            <div class="chart-container mb-8">
+                <h3 class="text-lg font-semibold mb-4">AI Business Annual Revenue Run Rate Growth / AI业务年化收入运行率增长</h3>
+                <canvas id="aiRevenueChart"></canvas>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Data for charts
+        const revenueBySegmentData = {
+            labels: ['Intelligent Cloud / 智能云', 'Productivity and Business Processes / 生产力和业务流程', 'More Personal Computing / 更多个人计算'],
+            datasets: [{
+                data: [29.9, 33.1, 13.5],
+                backgroundColor: ['#3b82f6', '#93c5fd', '#60a5fa'], // Different shades of blue
+                borderColor: '#283447',
+                borderWidth: 1
+            }]
+        };
+
+        const yoyChangeData = {
+            labels: ['Total Revenue / 总收入', 'Operating Income / 运营收入', 'Net Income / 净收入', 'Diluted EPS / 摊薄每股收益', 'Capital Expenditures / 资本支出', 'Cash Flow from Operations / 运营现金流', 'Free Cash Flow / 自由现金流', 'Gross Margin % / 毛利率 %'],
+            datasets: [{
+                data: [18, 23, 24, 24, 27, 15, 10, -1],
+                backgroundColor: function(context) {
+                    const value = context.dataset.data[context.dataIndex];
+                    return value >= 0 ? '#3b82f6' : '#ef4444';
+                },
+                borderColor: function(context) {
+                    const value = context.dataset.data[context.dataIndex];
+                    return value >= 0 ? '#3b82f6' : '#ef4444';
+                },
+                borderWidth: 1
+            }]
+        };
+
+        const aiRevenueData = {
+            labels: ['AI Business Annual Revenue Run Rate Growth / AI业务年化收入运行率增长'],
+            datasets: [{
+                data: [150], // 150% increase
+                backgroundColor: '#3b82f6',
+                borderColor: '#3b82f6',
+                borderWidth: 1
+            }]
+        };
+
+        // Chart configurations
+        const commonChartOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+            scales: {
+                x: {
+                    grid: {
+                        color: '#334155'
+                    },
+                    ticks: {
+                        color: '#f8fafc'
+                    }
+                },
+                y: {
+                    grid: {
+                        color: '#334155'
+                    },
+                    ticks: {
+                        color: '#f8fafc'
+                    }
+                }
+            }
+        };
+
+        // Revenue by Segment Chart
+        new Chart(document.getElementById('revenueBySegmentChart'), {
+            type: 'pie',
+            data: revenueBySegmentData,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#f8fafc'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Year-over-Year Change Chart
+        new Chart(document.getElementById('yoyChangeChart'), {
+            type: 'bar',
+            data: yoyChangeData,
+            options: {
+                ...commonChartOptions,
+                indexAxis: 'y', // Horizontal bar chart
+                scales: {
+                    x: {
+                        ...commonChartOptions.scales.x,
+                        ticks: {
+                            ...commonChartOptions.scales.x.ticks,
+                            callback: function(value) {
+                                return value + '%';
+                            }
+                        }
+                    },
+                    y: {
+                        ...commonChartOptions.scales.y
+                    }
+                }
+            }
+        });
+
+        // AI Business Annual Revenue Run Rate Growth Chart
+        new Chart(document.getElementById('aiRevenueChart'), {
+            type: 'bar',
+            data: aiRevenueData,
+            options: {
+                ...commonChartOptions,
+                scales: {
+                    x: {
+                        ...commonChartOptions.scales.x,
+                        ticks: {
+                            ...commonChartOptions.scales.x.ticks,
+                            callback: function(value) {
+                                return value + '%';
+                            }
+                        }
+                    },
+                    y: {
+                        ...commonChartOptions.scales.y,
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

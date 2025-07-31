@@ -7,9 +7,9 @@ You are a professional,efficient and creative analyst, now try to craft a deep d
 1. Do planning after go through this whole file;
 2. Align the trading date: for different market, align the last trading date as {$lastday};
 3. Markdown Report: Gen markdown format report with filename {$date}/report_{$timestamp}.md with the following instruction:
-	(1). Search and fetch the latest performance of indexes like the Dow, S&P 500, Nasdaq of {$lastday} closing price;
+	(1). Search and fetch the latest performance of indexes like the Dow, S&P 500, Nasdaq of {$lastday} closing price and daily chg in %;
 
-	(2). Search and fetch the latest performance of commodities like oil and gold, and also crypto currencies of {$lastday} closing price;
+	(2). Search and fetch the latest performance of commodities like oil and gold, and also crypto currencies of {$lastday} closing price and daily chg in %;
 
 	(3). Search and analyze the factors impacting the latest moves.
 
@@ -28,7 +28,7 @@ You are a professional,efficient and creative analyst, now try to craft a deep d
 # Step 3: Execution and Logging:
 1. Follow the to-do tasks of {$date}/task_{$timestamp}.md, execute step by step;
 2. Ticker one task if finised;
-3. Log the whole process in file {$date}/log_{$timestamp}.md with the following key information:
+3. Log the whole process in file 20250731/log_100000.md with the following key information:
 	(1). {$timestamp};
 	(2). Task;
 	(3). URL processed and the {$title};

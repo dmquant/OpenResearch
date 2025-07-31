@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>U.S. Financial Market Update / 美国金融市场更新</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1e293b;
+            color: #f8fafc;
+        }
+        .chart-container {
+            background-color: #283447;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+        }
+        h2 {
+            border-bottom: 2px solid #c0a062;
+            padding-bottom: 0.5rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        table thead th {
+            color: #c0a062;
+            background-color: #283447;
+        }
+        table tr:nth-child(even) {
+            background-color: #283447;
+        }
+        table tr {
+            border-bottom: 1px solid #334155;
+        }
+        .positive { color: #3b82f6; }
+        .negative { color: #ef4444; }
+        .note { color: #94a3b8; }
+    </style>
+</head>
+<body class="p-4 sm:p-8">
+    <main class="max-w-7xl mx-auto">
+        <header class="text-center mb-12">
+            <h1 class="text-3xl font-bold text-white">U.S. Financial Market Update</h1>
+            <h1 class="text-2xl font-bold text-white mt-2">美国金融市场更新</h1>
+            <p class="note mt-2">As of July 30, 2025 / 截至 2025 年 7 月 30 日</p>
+        </header>
+
+        <!-- Section 1: Major U.S. Indices -->
+        <section>
+            <h2 class="text-xl font-bold">1. Major U.S. Indices / 美国主要指数</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <div class="chart-container">
+                    <canvas id="indicesChart"></canvas>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full text-sm text-left">
+                        <thead class="font-bold">
+                            <tr>
+                                <th class="p-3">Index / 指数</th>
+                                <th class="p-3">Value / 收盘价</th>
+                                <th class="p-3">Daily Change / 日变化</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="p-3 font-semibold">Dow Jones Industrial Average / 道琼斯工业平均指数</td>
+                                <td class="p-3">44,461.28</td>
+                                <td class="p-3 negative font-semibold">▼ 0.38%</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-semibold">S&P 500 / 标准普尔500指数</td>
+                                <td class="p-3">6,362.90</td>
+                                <td class="p-3 negative font-semibold">▼ 0.12%</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-semibold">Nasdaq Composite / 纳斯达克综合指数</td>
+                                <td class="p-3">21,129.67</td>
+                                <td class="p-3 positive font-semibold">▲ 0.15%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="mt-4 space-y-2">
+                <p>Slipped after the Federal Reserve kept rates unchanged and Chair Jerome Powell signaled the Fed is not ready to cut rates; investors reacted to stronger-than-expected GDP data and the prospect of higher tariffs.</p>
+                <p class="note">在美联储维持利率不变、主席鲍威尔暗示不准备降息后，市场出现下滑；投资者对强于预期的GDP数据及可能提高的关税做出反应。</p>
+            </div>
+        </section>
+
+        <!-- Section 2: Commodities and Cryptocurrencies -->
+        <section>
+            <h2 class="text-xl font-bold">2. Commodities & Cryptocurrencies / 大宗商品与加密货币</h2>
+            <h3 class="text-lg font-semibold mt-6 mb-4">2.1 Commodities / 大宗商品</h3>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                 <div class="chart-container">
+                    <canvas id="commoditiesChart"></canvas>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full text-sm text-left">
+                        <thead class="font-bold">
+                            <tr>
+                                <th class="p-3">Commodity / 商品</th>
+                                <th class="p-3">Latest Price / 最新价格</th>
+                                <th class="p-3">Change / 变化</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="p-3 font-semibold">WTI Oil / 西德州中质原油</td>
+                                <td class="p-3">~$70/bbl</td>
+                                <td class="p-3 positive font-semibold">▲ 1.14%</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-semibold">Brent Crude / 布伦特原油</td>
+                                <td class="p-3">~$73.24/bbl</td>
+                                <td class="p-3 positive font-semibold">▲ 1.01%</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-semibold">Gold (spot) / 现货黄金</td>
+                                <td class="p-3">~$3,273.59/oz</td>
+                                <td class="p-3 negative font-semibold">▼ 1.58%</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-semibold">Copper (Comex) / 期铜</td>
+                                <td class="p-3">N/A</td>
+                                <td class="p-3 negative font-semibold">▼ ~20%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <h3 class="text-lg font-semibold mt-8 mb-4">2.2 Cryptocurrencies / 加密货币</h3>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <div class="chart-container">
+                    <canvas id="cryptoChart"></canvas>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full text-sm text-left">
+                        <thead class="font-bold">
+                            <tr>
+                                <th class="p-3">Cryptocurrency / 加密货币</th>
+                                <th class="p-3">Price / 价格</th>
+                                <th class="p-3">Daily Change / 日变化</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="p-3 font-semibold">Bitcoin (BTC) / 比特币</td>
+                                <td class="p-3">≈ $118,159</td>
+                                <td class="p-3 negative font-semibold">▼ 0.7%</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-semibold">Ethereum (ETH) / 以太坊</td>
+                                <td class="p-3">≈ $3,817</td>
+                                <td class="p-3 positive font-semibold">▲ 0.2%</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-semibold">Binance Coin (BNB) / 币安币</td>
+                                <td class="p-3">~ $802</td>
+                                <td class="p-3 negative font-semibold">▼ 3.5%</td>
+                            </tr>
+                             <tr>
+                                <td class="p-3 font-semibold">Tron (TRX) / 波场币</td>
+                                <td class="p-3">~ $0.3359</td>
+                                <td class="p-3 positive font-semibold">▲ 2.2%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Factors Driving Market Moves -->
+        <section>
+            <h2 class="text-xl font-bold">3. Factors Driving Market Moves / 市场驱动因素</h2>
+            <ul class="list-disc list-inside space-y-4">
+                <li>
+                    <strong>Federal Reserve Policy:</strong> Kept rates at 4.25-4.50%. Powell emphasized no rush to cut rates, pushing September rate-cut expectations below 50%.
+                    <p class="note ml-6"><strong>美联储政策：</strong> 维持利率在4.25-4.50%不变。鲍威尔强调“不急于降息”，导致9月降息预期降至50%以下。</p>
+                </li>
+                <li>
+                    <strong>Economic Data:</strong> Q2 GDP grew at 3.0%, beating expectations. However, underlying domestic demand grew at its slowest pace since 2022.
+                    <p class="note ml-6"><strong>经济数据：</strong> 第二季度GDP年化增长3.0%，超出预期。但国内潜在需求增速为2022年以来最慢。</p>
+                </li>
+                <li>
+                    <strong>Tariff Uncertainty:</strong> Trump's 50% tariff on copper products caused prices to plunge. An Aug. 1 deadline looms for tariffs on other partners.
+                    <p class="note ml-6"><strong>关税不确定性：</strong> 特朗普对铜产品征收50%关税导致铜价暴跌。对其他贸易伙伴的关税最后期限为8月1日。</p>
+                </li>
+                <li>
+                    <strong>Corporate Earnings:</strong> Mixed results. Strong after-hours reports from Microsoft (+8%) and Meta (+9%) boosted tech, while UPS (-10%) and Carrier (-11%) fell on weak guidance.
+                    <p class="note ml-6"><strong>公司财报：</strong> 结果好坏参半。微软（盘后+8%）和Meta（盘后+9%）的强劲财报提振了科技股，而UPS（-10%）和开利（-11%）则因指引疲软而下跌。</p>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Section 4: Performance of Selected Stock Groups -->
+        <section>
+            <h2 class="text-xl font-bold">4. Performance of Selected Stock Groups / 特定股票板块表现</h2>
+            <h3 class="text-lg font-semibold mt-6 mb-4">4.1 "Magnificent 7" & Other Mega-caps / “七巨头”及其他大盘股 (After-Hours Change / 盘后变化)</h3>
+            <div class="chart-container mb-8">
+                <canvas id="mag7Chart"></canvas>
+            </div>
+
+            <h3 class="text-lg font-semibold mt-6 mb-4">4.2 Bank Stocks / 银行股 (Post-Earnings Reaction / 财报后反应)</h3>
+            <div class="chart-container mb-8">
+                <canvas id="banksChart"></canvas>
+            </div>
+
+            <h3 class="text-lg font-semibold mt-6 mb-4">4.3 Top Movers (Consumer & Industrials) / 主要波动股 (消费与工业)</h3>
+            <div class="chart-container">
+                <canvas id="moversChart"></canvas>
+            </div>
+        </section>
+        
+        <!-- Section 5: Other Top Movers and Sector Trends -->
+        <section>
+            <h2 class="text-xl font-bold">5. Other Top Movers and Sector Trends / 其他主要波动及板块趋势</h2>
+            <ul class="list-disc list-inside space-y-4">
+                <li>
+                    <strong>Materials:</strong> The S&P 500 materials sector fell 2% as copper futures collapsed after Trump's 50% tariff. Freeport-McMoRan slid 9.5%.
+                    <p class="note ml-6"><strong>材料板块：</strong> 在特朗普宣布50%铜关税导致期铜崩盘后，标普500材料板块下跌2%。Freeport-McMoRan下跌9.5%。</p>
+                </li>
+                <li>
+                    <strong>Technology & AI:</strong> Strong earnings from Microsoft, Meta and Cadence highlighted continued momentum in AI-related spending.
+                    <p class="note ml-6"><strong>科技与AI：</strong> 微软、Meta和Cadence的强劲财报凸显了AI相关支出的持续动力。</p>
+                </li>
+                <li>
+                    <strong>Consumer Goods:</strong> Whirlpool's forecast cut (-13.4%) signalled caution on discretionary spending.
+                    <p class="note ml-6"><strong>消费品：</strong> 惠而浦下调预期（-13.4%），表明市场对非必需消费支出持谨慎态度。</p>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Section 6: Upcoming Events -->
+        <section>
+            <h2 class="text-xl font-bold">6. Upcoming Events That May Impact Markets / 可能影响市场的未来事件</h2>
+            <div class="overflow-x-auto">
+                <table class="min-w-full text-sm text-left">
+                    <thead class="font-bold">
+                        <tr>
+                            <th class="p-3">Date / 日期</th>
+                            <th class="p-3">Event / 事件</th>
+                            <th class="p-3">Potential Impact / 잠재적 영향</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="p-3 font-semibold">Thu, July 31<br>7月31日 (周四)</td>
+                            <td class="p-3">PCE Price Index (June), Jobless Claims, Earnings (Apple, Amazon) <br> PCE物价指数(6月), 初请失业金人数, 财报(苹果, 亚马逊)</td>
+                            <td class="p-3">Inflation and labor data will shape rate expectations. <br> 通胀和劳动力数据将影响利率预期。</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 font-semibold">Fri, Aug 1<br>8月1日 (周五)</td>
+                            <td class="p-3">Tariff Deadline, U.S. Employment Report (July), ISM PMI <br> 关税最后期限, 美国就业报告(7月), ISM制造业PMI</td>
+                            <td class="p-3">Tariff decisions could trigger volatility; jobs report will inform economic momentum. <br> 关税决定可能引发波动；就业报告将反映经济动能。</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Section 7: Short-Term Outlook -->
+        <section>
+            <h2 class="text-xl font-bold">7. Short-Term Outlook & Predictions / 短期展望与预测</h2>
+             <ul class="list-disc list-inside space-y-4">
+                <li>
+                    <strong>Interest-rate Outlook:</strong> A rate cut is now seen as more likely in December than September. Short-term yields may remain elevated.
+                    <p class="note ml-6"><strong>利率展望：</strong> 市场认为12月降息的可能性大于9月。短期收益率可能保持高位。</p>
+                </li>
+                <li>
+                    <strong>Tariff Uncertainty:</strong> The Aug 1 deadline and unpredictable announcements introduce significant headline risk.
+                    <p class="note ml-6"><strong>关税不确定性：</strong> 8月1日的最后期限和不可预测的公告带来了显著的头条新闻风险。</p>
+                </li>
+                 <li>
+                    <strong>Overall Sentiment:</strong> Expect choppy trading with a modest upward bias, contingent on data and policy signals.
+                    <p class="note ml-6"><strong>总体情绪：</strong> 预计市场将出现震荡行情，略有上行倾向，具体取决于数据和政策信号。</p>
+                </li>
+            </ul>
+        </section>
+
+        <footer class="text-center mt-12 pt-4 border-t border-gray-700">
+            <p class="note text-xs">This report synthesises information from recent Reuters articles, Investopedia market updates and other sources to provide an overview of market conditions up to July 30, 2025.</p>
+            <p class="note text-xs mt-2">本报告综合了路透社、Investopedia及其他来源的最新信息，旨在提供截至2025年7月30日的市场状况概览。</p>
+        </footer>
+    </main>
+
+<script>
+    const ctx = document.getElementById('indicesChart').getContext('2d');
+    const positiveColor = '#3b82f6';
+    const negativeColor = '#ef4444';
+    const positiveGradient = ctx.createLinearGradient(0, 0, 600, 0);
+    positiveGradient.addColorStop(0, '#3b82f6');
+    positiveGradient.addColorStop(1, '#93c5fd');
+
+    const chartOptions = {
+        indexAxis: 'y',
+        scales: {
+            x: {
+                beginAtZero: true,
+                grid: { color: '#334155' },
+                ticks: { 
+                    color: '#f8fafc',
+                    callback: (value) => value + '%'
+                }
+            },
+            y: {
+                grid: { display: false },
+                ticks: { color: '#f8fafc', font: { weight: 'bold' } }
+            }
+        },
+        plugins: {
+            legend: { display: false },
+            tooltip: {
+                callbacks: {
+                    label: (context) => `${context.raw.toFixed(2)}%`
+                }
+            }
+        },
+        maintainAspectRatio: false
+    };
+
+    // Chart 1: Major U.S. Indices
+    new Chart(document.getElementById('indicesChart'), {
+        type: 'bar',
+        data: {
+            labels: ['Nasdaq', 'S&P 500', 'Dow Jones'],
+            datasets: [{
+                label: 'Daily Change',
+                data: [0.15, -0.12, -0.38],
+                backgroundColor: d => d.raw >= 0 ? positiveGradient : negativeColor,
+                borderColor: d => d.raw >= 0 ? positiveColor : negativeColor,
+                borderWidth: 1
+            }]
+        },
+        options: chartOptions
+    });
+
+    // Chart 2: Commodities
+    new Chart(document.getElementById('commoditiesChart'), {
+        type: 'bar',
+        data: {
+            labels: ['WTI Oil', 'Brent Crude', 'Gold', 'Copper'],
+            datasets: [{
+                label: 'Change',
+                data: [1.14, 1.01, -1.58, -20.0],
+                backgroundColor: d => d.raw >= 0 ? positiveGradient : negativeColor,
+                borderColor: d => d.raw >= 0 ? positiveColor : negativeColor,
+                borderWidth: 1
+            }]
+        },
+        options: chartOptions
+    });
+
+    // Chart 3: Cryptocurrencies
+    new Chart(document.getElementById('cryptoChart'), {
+        type: 'bar',
+        data: {
+            labels: ['Tron (TRX)', 'Ethereum (ETH)', 'Bitcoin (BTC)', 'Binance Coin (BNB)'],
+            datasets: [{
+                label: 'Daily Change',
+                data: [2.2, 0.2, -0.7, -3.5],
+                backgroundColor: d => d.raw >= 0 ? positiveGradient : negativeColor,
+                borderColor: d => d.raw >= 0 ? positiveColor : negativeColor,
+                borderWidth: 1
+            }]
+        },
+        options: chartOptions
+    });
+
+    // Chart 4: Magnificent 7
+    new Chart(document.getElementById('mag7Chart'), {
+        type: 'bar',
+        data: {
+            labels: ['Meta', 'Microsoft', 'Amazon', 'Nvidia', 'Apple', 'Tesla'],
+            datasets: [{
+                label: 'Change',
+                data: [9, 8, 2, 1, -1, -1],
+                backgroundColor: d => d.raw >= 0 ? positiveGradient : negativeColor,
+                borderColor: d => d.raw >= 0 ? positiveColor : negativeColor,
+                borderWidth: 1
+            }]
+        },
+        options: chartOptions
+    });
+
+    // Chart 5: Bank Stocks
+    new Chart(document.getElementById('banksChart'), {
+        type: 'bar',
+        data: {
+            labels: ['Citigroup', 'JPMorgan', 'Wells Fargo'],
+            datasets: [{
+                label: 'Post-Earnings Reaction',
+                data: [5, -0.7, -6.3],
+                backgroundColor: d => d.raw >= 0 ? positiveGradient : negativeColor,
+                borderColor: d => d.raw >= 0 ? positiveColor : negativeColor,
+                borderWidth: 1
+            }]
+        },
+        options: chartOptions
+    });
+
+    // Chart 6: Top Movers
+    new Chart(document.getElementById('moversChart'), {
+        type: 'bar',
+        data: {
+            labels: ['Corning', 'Incyte', 'Cadence', 'Boeing', 'UPS', 'Brown & Brown', 'Carrier', 'Whirlpool'],
+            datasets: [{
+                label: 'Change',
+                data: [12, 10, 9.7, -4.4, -10, -10, -11, -13.4],
+                backgroundColor: d => d.raw >= 0 ? positiveGradient : negativeColor,
+                borderColor: d => d.raw >= 0 ? positiveColor : negativeColor,
+                borderWidth: 1
+            }]
+        },
+        options: chartOptions
+    });
+</script>
+</body>
+</html>
