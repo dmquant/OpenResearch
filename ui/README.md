@@ -37,15 +37,15 @@ A modern React application that generates comprehensive research plans using Goo
    # Create .env file in project root
    cp .env.example .env
    
-   # Add your API key to .env (note: no VITE_ prefix needed)
-   GEMINI_API_KEY=your_actual_api_key_here
-   GEMINI_MODEL=gemini-2.5-flash-lite
+   # Add your API key to .env
+   VITE_GEMINI_API_KEY=your_actual_api_key_here
+   VITE_GEMINI_MODEL=gemini-2.5-flash-lite
    ```
 
 4. **Start the development server:**
    ```bash
    # The server needs access to the environment variables
-   GEMINI_API_KEY=your_actual_api_key_here npm run dev
+   VITE_GEMINI_API_KEY=your_actual_api_key_here npm run dev
    ```
 
 ## 🎯 Usage
@@ -101,8 +101,8 @@ src/
 
 | Variable | Description | Default |
 |----------|-------------|---------|
-| `GEMINI_API_KEY` | Your Gemini API key | Required |
-| `GEMINI_MODEL` | Gemini model to use | `gemini-2.5-flash-lite` |
+| `VITE_GEMINI_API_KEY` | Your Gemini API key | Required |
+| `VITE_GEMINI_MODEL` | Gemini model to use | `gemini-2.5-flash-lite` |
 
 ## 🔒 Security Notes
 
