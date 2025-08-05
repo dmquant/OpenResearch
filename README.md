@@ -1,4 +1,16 @@
-# 安装Gemini CLI ：Mac or Linux （Windows需要使用WSL子系统）
+# 8月5日大更新：加入UI界面
+## 加入子项目UI：可视化研究界面
+## 使用方法
+  - cd ui
+  - npm install
+  - cp .env.example .env
+  - 编辑.env，设置自己的Gemini APIKEY(可在Google AI Studio中申请)
+  - 设置模型，默认使用'gemini-2.5-flash'，在当前场景下，2.5-pro模型不能正常使用，可选项是2.5-flash和2.5-flash-lite
+  - npm run dev
+  - 访问 localhost:5173
+
+# 终端下的一键式研究（目前，它还是质量更好的方式，可使用2.5-pro，在任务迭代上质量略高，同时目前工作流支持一键生成可视化报告）
+## 安装Gemini CLI ：Mac or Linux （Windows需要使用WSL子系统）
 1. 安装Node：https://nodejs.org/en/download 安装Node.js， 需要20及以上版本
 2. 在命令行下安装
      npx https://github.com/google-gemini/gemini-cli
@@ -12,15 +24,19 @@
    例如： 
      do a deep reserch under the instruction prompted at @instruct.md: impacts of us-euro's 15% tariff agreement: for each country, each sector, and long-term impacts and shifts
 
-# examples/
+## examples/
   将日常研究结果加入，作为分享。
 
-# 2025-7-29更新：
+# 历史更新
+
+## 2025-7-31日更新：
+  加入instruct_v2.md，修改了机制，可以生成更长的报告内容，但是稳定性会差一些。
+
+## 2025-7-29更新：
   加入日报生成功能: daily/
   提示词：follow the instruct of @report.md to finish the report and webpage gen task
 
-# 2025-7-31日更新：
-  加入instruct_v2.md，修改了机制，可以生成更长的报告内容，但是稳定性会差一些。
+
 
 # 未解决的bug：
   在Gemini Cli中，如果使用flash模型，需要输入提示词两次：第一次程序读取了指定的文件，然后“自认为”任务完成了，需要再输入一次相同的提示词才可以继续进行工作。
