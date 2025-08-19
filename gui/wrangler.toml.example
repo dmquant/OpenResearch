@@ -1,0 +1,40 @@
+name = "openresearch-worker"
+main = "worker/src/index.js"
+compatibility_date = "2025-01-15"
+compatibility_flags = ["nodejs_compat"]
+
+# Environment variables
+[vars]
+ENVIRONMENT = "production"
+
+# D1 Database bindings
+[[d1_databases]]
+binding = "DB"
+database_name = "openresearch-db"
+database_id = 
+
+# Vectorize binding for embeddings
+[[vectorize]]
+binding = "VECTORIZE"
+index_name = "research-embeddings"
+
+# Workers AI binding for embeddings
+[ai]
+binding = "AI"
+
+# R2 bucket bindings
+[[r2_buckets]]
+binding = "REPORTS_BUCKET"
+bucket_name = "openresearch-reports"
+
+[[r2_buckets]]
+binding = "ASSETS_BUCKET"
+bucket_name = "openresearch-assets"
+
+# KV for caching (optional) - commented out until needed
+# [[kv_namespaces]]
+# binding = "CACHE"
+# id = "your_kv_namespace_id"
+# preview_id = "your_preview_kv_namespace_id"
+
+# Note: No secrets needed - Cloudflare AI is built-in

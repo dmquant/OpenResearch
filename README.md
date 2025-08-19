@@ -1,6 +1,20 @@
-# 8月5日大更新：加入UI界面
-## 加入子项目UI：可视化研究界面
-## 使用方法
+# 8月19日更新：全新优化的GUI
+  - 目录：gui/
+## [说明](<gui/README.md>)
+## [架构](<gui/docs/architecture-diagrams-zh.md>)
+
+## 主要介绍
+  - 加入Cloudeflare后台
+  - 加入Dashboard
+  - 集成tiptap编辑器（简版）
+
+
+
+# 历史更新
+
+## 8月5日大更新：加入UI界面
+### 加入子项目UI：可视化研究界面
+### 使用方法
   - cd ui
   - npm install
   - cp .env.example .env
@@ -9,25 +23,31 @@
   - npm run dev
   - 访问 localhost:5173
 
-# 终端下的一键式研究（目前，它还是质量更好的方式，可使用2.5-pro，在任务迭代上质量略高，同时目前工作流支持一键生成可视化报告）
-## 安装Gemini CLI ：Mac or Linux （Windows需要使用WSL子系统）
-1. 安装Node：https://nodejs.org/en/download 安装Node.js， 需要20及以上版本
-2. 在命令行下安装
-     npx https://github.com/google-gemini/gemini-cli
-   或者
-     npm install -g @google/gemini-cli
-3. 运行 Gemini CLI
-     gemini
+### 终端下的一键式研究（目前，它还是质量更好的方式，可使用2.5-pro，在任务迭代上质量略高，同时目前工作流支持一键生成可视化报告）
+##### 安装Gemini CLI ：Mac or Linux （Windows需要使用WSL子系统）
+  - 1. 安装Node：https://nodejs.org/en/download 安装Node.js， 需要20及以上版本
+  - 2. 在命令行下安装
+    ```shell
+    npx https://github.com/google-gemini/gemini-cli
+    ```
+      或者
+    ```shell
+    npm install -g @google/gemini-cli
+    ```
+  - 3. 运行 Gemini CLI
+    ```shell
+    gemini
+    ```
 
-4. 进行深度研究，在Gemini CLI客户端里输入：
-     do a deep reserch under the instruction prompted at @instruct.md: 【提示词，中英文均可】
-   例如： 
-     do a deep reserch under the instruction prompted at @instruct.md: impacts of us-euro's 15% tariff agreement: for each country, each sector, and long-term impacts and shifts
+  - 4. 进行深度研究，在Gemini CLI客户端里输入：
+    > do a deep reserch under the instruction prompted at @instruct.md: 【提示词，中英文均可】
+
+    例如
+    
+    > do a deep reserch under the instruction prompted at @instruct.md: impacts of us-euro's 15% tariff agreement: for each country, each sector, and long-term impacts and shifts
 
 ## examples/
   将日常研究结果加入，作为分享。
-
-# 历史更新
 
 ## 2025-7-31日更新：
   加入instruct_v2.md，修改了机制，可以生成更长的报告内容，但是稳定性会差一些。

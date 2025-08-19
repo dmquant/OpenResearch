@@ -1,0 +1,24 @@
+{
+  "name": "openresearch-worker",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "db:create": "wrangler d1 create openresearch-db",
+    "db:migrate": "wrangler d1 migrations apply openresearch-db",
+    "db:migrate-local": "wrangler d1 migrations apply openresearch-db --local",
+    "vectorize:create": "wrangler vectorize create research-embeddings --dimensions=768 --metric=cosine",
+    "r2:create-reports": "wrangler r2 bucket create openresearch-reports",
+    "r2:create-assets": "wrangler r2 bucket create openresearch-assets",
+    "setup": "npm run db:create && npm run vectorize:create && npm run r2:create-reports && npm run r2:create-assets"
+  },
+  "dependencies": {
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20241218.0",
+    "wrangler": "^3.92.0"
+  }
+}
